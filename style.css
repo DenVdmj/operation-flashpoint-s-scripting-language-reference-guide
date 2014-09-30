@@ -257,6 +257,11 @@ ins {
   text-decoration: none;
 }
 
+ul.toc s,
+ul.toc s a {
+  color: #999 !important;
+}
+
 del, del * {
   display: none;
 }
