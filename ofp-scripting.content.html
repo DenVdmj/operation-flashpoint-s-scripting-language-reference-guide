@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Язык описания сценариев игры Operation Flashpoint. Справочное руководство. Оглавление.</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="ofp-scripting.js"></script>
+</head>
+<body>
+
+<h1>Язык описания сценариев игры «Operation Flashpoint»<br><i>Справочное руководство</i></h1>
+
+<h4>Оглавление</h4>
+
+<ul class="toc">
+  <li><a href="ofp-scripting.first-steps.html#00">Первые шаги</a>
+    <ul>
+      <li><a href="ofp-scripting.first-steps.html#01">Среда</a></li>
+      <li><a href="ofp-scripting.first-steps.html#02">Редактор</a></li>
+      <li><s><a href="ofp-scripting.first-steps.html#03">Первый скрипт "привет мир" его запуск</a></s></li>
+      <li><s><a href="ofp-scripting.first-steps.html#04">Основные способы активации скрипта</a></s></li>
+      <li><s><a href="ofp-scripting.first-steps.html#05">Простая sqf-функция ее запуск</a></s></li>
+      <li><s><a href="ofp-scripting.first-steps.html#06">Основные отличия sqf-функций и sqs-скриптов</a></s></li>
+      <li><s><a href="ofp-scripting.first-steps.html#07">Обзор других способов запуска скриптов</a></s></li>
+    </ul>
+  </li>
+  <li><a href="ofp-scripting.syntax.html#toc00">Синтаксис языка</a>
+    <ul>
+      <li><a href="ofp-scripting.syntax.html#toc01">Sqs скрипты</a>
+        <ul>
+          <li><a href="ofp-scripting.syntax.html#toc02">Выполнение sqs скриптов</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc03">Построковая структура sqs скрипта</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc04">Передача и получение аргументов скрипта</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc05">Комментарии</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc06">Операторы управления процессом вычисления</a>
+            <ul>
+              <li><a href="ofp-scripting.syntax.html#toc07">Оператор условного выполнения ?:</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc08">Метки и оператор goto</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc09">Ожидание выполнения указанного условия @</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc10">Ожидание наступления указанного времени &amp;</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc11">Пауза ~</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc12">Выход из скрипта</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.syntax.html#toc13">Sqf функции</a>
+        <ul>
+          <li><a href="ofp-scripting.syntax.html#toc14">Выполнение sqf функций</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc15">Блочная структура функций</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc16">Передача и получение аргументов функций</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc17">Возвращаемое значение</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc18">Комментарии</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc19">Макро</a></li>
+          <li><a href="ofp-scripting.syntax.html#toc20">Операторы управления процессом вычисления</a>
+            <ul>
+              <li><a href="ofp-scripting.syntax.html#toc21">Оператор условного выполнения if then else</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc22">Оператор цикла while do</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc23">Оператор поэлементного обхода массива foreach</a></li>
+              <li><a href="ofp-scripting.syntax.html#toc24">Косвенный вызов функций или имитирование оператора switch</a></li>
+            </ul>
+          </li>
+          <li><a href="ofp-scripting.syntax.html#toc25">Рекурсивные функции</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="ofp-scripting.variable.html#toc00">Переменные, их типы и операции над ними</a>
+    <ul>
+      <li><a href="ofp-scripting.variable.html#toc01">Переменные, их имена, значения и типы, область видимости, зарезервированные переменные</a>
+        <ul>
+          <li><a href="ofp-scripting.variable.html#toc01_1">Имена переменных</a></li>
+          <li><a href="ofp-scripting.variable.html#toc01_2">Инициализация переменных</a></li>
+          <li><a href="ofp-scripting.variable.html#toc01_3">Область видимости</a></li>
+          <li><a href="ofp-scripting.variable.html#toc01_4">Типы переменных</a></li>
+          <li><a href="ofp-scripting.variable.html#toc01_5">Зарезервированные переменные</a></li>
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.variable.html#toc02">Числа или величины с типом Number</a>
+        <ul>
+          <li><a href="ofp-scripting.variable.html#toc03">Операции над числами и их приоритеты</a></li>
+          <li><a href="ofp-scripting.variable.html#toc04">Математические функции</a></li>
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.variable.html#toc05">Логические или Булевы величины</a>
+      <ul>
+        <li><a href="ofp-scripting.variable.html#toc07">Операции отношения</a></li>
+        <li><a href="ofp-scripting.variable.html#toc08">Операции над булевыми величинами</a></li>
+        <li><a href="ofp-scripting.variable.html#toc09">Приоритеты логических операций</a></li>
+      </ul>
+      </li>
+      <li><a href="ofp-scripting.variable.html#toc10">Строки или величины с типом String</a>
+        <ul>
+          <li><a href="ofp-scripting.variable.html#toc11">Конкатенация строк</a></li>
+          <li><a href="ofp-scripting.variable.html#toc12">Преобразование значений других типов в строку — команда format</a></li>
+          <!--
+          <li><a href="ofp-scripting.variable.html#toc13">Другие строковые данные — зарезервированные значения принимаемые командами, имена классов игровых объектов, имена файлов скриптов.</a></li>
+          -->
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.variable.html#toc14">Массивы или переменные с типом Array</a>
+        <ul>
+          <li><a href="ofp-scripting.variable.html#toc15">Массивы как наборы индексируемых значений</a></li>
+          <li><a href="ofp-scripting.variable.html#toc16">Операции над массивами</a>
+            <ul>
+              <li><a href="ofp-scripting.variable.html#toc17">Чтение элемента массива командой select</a></li>
+              <li><a href="ofp-scripting.variable.html#toc18">Запись элемента массива командой set</a></li>
+              <li><a href="ofp-scripting.variable.html#toc19">Изменение размера массива командой resize</a></li>
+              <li><a href="ofp-scripting.variable.html#toc20">Переменная с типом Array — суть ссылка</a></li>
+              <li><a href="ofp-scripting.variable.html#toc21">Конкатенация массивов</a></li>
+              <li><a href="ofp-scripting.variable.html#toc22">Вычитание массивов</a></li>
+              <li><a href="ofp-scripting.variable.html#toc23">Другие манипуляции с массивами</a></li>
+            </ul>
+          </li>
+          <li><a href="ofp-scripting.variable.html#toc24">Вложенные массивы</a></li>
+          <li><a href="ofp-scripting.variable.html#toc25">Разделяемые области данных</a></li>
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.variable.html#toc26">Переменные других типов</a>
+        <ul>
+          <li><a href="ofp-scripting.variable.html#toc27">Переменные ссылающиеся на объекты, значения с типом Object</a></li>
+          <li><a href="ofp-scripting.variable.html#toc28">Переменные идентифицирующие группы юнитов, значения с типом Group</a></li>
+          <li><a href="ofp-scripting.variable.html#toc29">Переменные идентифицирующие стороны, значения с типом Side</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="ofp-scripting.cursorily.html#toc01">Галопом по европам</a>
+    <ul>
+      <li><a href="ofp-scripting.cursorily.html#toc02">Некоторые ошибки начинающего скриптовальщика</a>
+        <ul>
+          <li><a href="ofp-scripting.cursorily.html#toc03">Совсем ужасный код</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc04">Никогда не используйте копипаст кода</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc05">Выносите многократно повторяющиеся действия в подпрограммы</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc06">Разделяйте код и данные</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc07">Ваши структуры данных важнее вашего кода</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc08">Никогда не дублируйте данные</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc09">Храните данные связанные по смыслу в одном месте</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc10">SQS vs SQF?</a></li>
+        </ul>
+      </li>
+      <li><a href="ofp-scripting.cursorily.html#toc11">Глобальные имена, чем это плохо и как с этим бороться</a>
+        <ul>
+          <li><a href="ofp-scripting.cursorily.html#toc12">Трудности с глобальными именами</a>
+            <ul>
+              <li><a href="ofp-scripting.cursorily.html#toc13">Mangled-Style</a></li>
+              <li><a href="ofp-scripting.cursorily.html#toc14">Переменные передаваемые по ссылке от родительского скрипта дочерним</a></li>
+              <li><a href="ofp-scripting.cursorily.html#toc15">Библиотеки возвращающие список определяемых функций</a></li>
+            </ul>
+          </li>
+          <li><a href="ofp-scripting.cursorily.html#toc16">На что уходит время?</a></li>
+          <li><a href="ofp-scripting.cursorily.html#toc17">Сортировка</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li><a href="ofp-scripting.epilogue.html#toc01">Послесловие</a>
+    <ul>
+      <li><a href="ofp-scripting.epilogue.html#toc02">«Стеб» или «Смешные вещи с серьезным лицом»</a></li>
+      <li><a href="ofp-scripting.epilogue.html#toc03">«Отмазка» или «Сентиментальная ирония»</a>
+      </li>
+    </ul>
+  </li>
+
+</ul>
+
+</body>
+</html>
