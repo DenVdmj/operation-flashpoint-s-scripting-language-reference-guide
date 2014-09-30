@@ -234,6 +234,11 @@ ul.toc a:hover {
   background-repeat: repeat-x;
 }
 
+ul.toc s,
+ul.toc s a {
+  color: #999 !important;
+}
+
 *[tooltip]:after,
 *[title]:after {
   content: "*";
@@ -255,11 +260,6 @@ ul.toc a:hover {
 ins {
   display: inline;
   text-decoration: none;
-}
-
-ul.toc s,
-ul.toc s a {
-  color: #999 !important;
 }
 
 del, del * {
