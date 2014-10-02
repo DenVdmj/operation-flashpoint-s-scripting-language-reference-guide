@@ -46,7 +46,7 @@ a:hover {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Play";
+  font-family: "Play", "Verdana";
   padding: 0;
   margin: 2em 0 1em -1px;
   line-height: 130%;
@@ -212,7 +212,7 @@ ul.none * {
 /* table of contens */
 ul.toc {
   margin-left: 0;
-  font-family: "Play";
+  font-family: "Play", "Verdana"
 }
 
 ul.toc li          { color: #900; list-style-type: none; font-weight: bold; font-size: 100%; }
