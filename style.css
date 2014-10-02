@@ -1,4 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Play:400,700&subset=cyrillic-ext,latin-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Play:400,700&subset=cyrillic-ext,latin-ext);*/
+@import url(style.fonts.css);
+
 
 body {
   font: 12pt/140% "Verdana", sans-serif;
