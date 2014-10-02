@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Play:400,700&subset=cyrillic-ext,latin-ext);
 
 body {
   font: 12pt/140% "Verdana", sans-serif;
@@ -45,6 +46,7 @@ a:hover {
 }
 
 h1,h2,h3,h4,h5,h6 {
+  font-family: "Play";
   padding: 0;
   margin: 2em 0 1em -1px;
   line-height: 130%;
@@ -210,6 +212,7 @@ ul.none * {
 /* table of contens */
 ul.toc {
   margin-left: 0;
+  font-family: "Play";
 }
 
 ul.toc li          { color: #900; list-style-type: none; font-weight: bold; font-size: 100%; }
@@ -248,12 +251,16 @@ ul.toc s a {
 
 
 #x-tooltip {
+  margin: 1em;
+}
+#x-tooltip > div {
   font: 80%/140% Verdana;
   background: InfoBackground;
   border: 1px solid ButtonFace;
   border-radius: 5pt;
-  box-shadow: rgba(1,1,1,.4) 0 0 2em;
+  box-shadow: rgba(1,1,1,.6) 0 0 2em;
   padding: 1em;
+  margin: -2em 0 0 -2em;
   max-width: 30em;
 }
 
@@ -265,4 +272,5 @@ ins {
 del, del * {
   display: none;
 }
+
 

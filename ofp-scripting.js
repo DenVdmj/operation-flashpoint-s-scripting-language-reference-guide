@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     var tooltipElement = document.createElement('div');
+    var tooltipText = document.createElement('div');
 
     tooltipElement.id = 'x-tooltip';
     tooltipElement.style.position = 'absolute';
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     document.body.appendChild(tooltipElement);
+    tooltipElement.appendChild(tooltipText);
 
     [].forEach.call(
         document.querySelectorAll('*[tooltip]'),
@@ -19,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             node.onmousedown = function (event) {
 
-                tooltipElement.innerHTML = this.getAttribute('tooltip').replace(/\n/gi, '<br />');
+                tooltipText.innerHTML = this.getAttribute('tooltip').replace(/\n/gi, '<br />');
 
-                tooltipElement.style.left = event.pageX + 10 + 'px';
-                tooltipElement.style.top = event.pageY - 10  + 'px';
+                tooltipElement.style.left = event.pageX + 'px';
+                tooltipElement.style.top = event.pageY + 'px';
                 tooltipElement.style.display = 'block';
 
                 document.body.onmousedown = function (e) {
