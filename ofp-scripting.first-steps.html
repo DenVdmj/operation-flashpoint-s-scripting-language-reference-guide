@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Язык описания сценариев игры Operation Flashpoint. Справочное руководство. Первые шаги.</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script src="ofp-scripting.js"></script>
+<link href=".rsc/style.css" rel="stylesheet" type="text/css" />
+<script src=".rsc/init.js"></script>
 <script src="hyphened-text.js"></script>
 </head>
 <body>
@@ -33,15 +33,17 @@
 (UserName — ваш ник в игре). Перейдите в указанный каталог:</p>
 <pre class="text">/path/to/Operation Flashpoint/Users/UserName</pre>
 <p>Вот как может выглядеть его организация:</p>
-<table cellspacing="0" class="list" cellpadding="0">
-<tbody><tr><th>[DtaExt]</th><th>—</th><td>этот каталог можно создать ручками — он аналогичен каталогу dtaext кампании</td></tr>
+<table class="list">
+<tbody>
+<tr><th>[DtaExt]</th><th>—</th><td>этот каталог можно создать ручками — он аналогичен каталогу dtaext кампании</td></tr>
 <tr><th>[Missions]</th><th>—</th><td>здесь лежат созданные вами миссии, этот каталог будет существовать если вы сохраняли их в редакторе</td></tr>
 <tr><th>[MPMissions]</th><th>—</th><td>здесь лежат созданные вами сетевые миссии, этот каталог будет существовать если вы сохраняли их в редакторе</td></tr>
 <tr><th>[Saved]</th><th>—</th><td>это ваши сэйвы</td></tr>
 <tr><th>[Scripts]</th><th>—</th><td>этот каталог необходимо создать ручками — здесь лежат скрипты доступные из любой миссии. Он аналогичен каталогу scripts кампании.</td></tr>
 <tr><th>UserInfo.cfg</th><th>—</th><td>файл с вашими настройками</td></tr>
 <tr><th>description.ext</th><th>—</th><td>этот файл можно создать ручками. Он аналогичен файлу description.ext кампании.</td></tr>
-</tbody></table>
+</tbody>
+</table>
 
 <p>Как можно заметить, о некоторых каталогах сказано, что они соответствуют тем же каталогам
 кампаний — этим можно воспользоваться при запуске миссий из распакованных кампаний, часто проще распаковать всю

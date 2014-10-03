@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(tooltipElement);
     tooltipElement.appendChild(tooltipText);
 
-    [].forEach.call(
+    Array.prototype.forEach.call(
         document.querySelectorAll('*[tooltip]'),
         function (node) {
 
@@ -36,4 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     )
+
+    /*
+    hljs.configure({tabReplace: '    '});
+
+    Array.prototype.forEach.call(document.querySelectorAll("pre.hl"), function (node) {
+        console.log(node);
+        hljs.highlightBlock(node);
+    })
+    */
+
 }, false)
+
+
+
