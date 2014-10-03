@@ -7,7 +7,7 @@ body {
   margin: auto;
   padding: 1em 0 4em 0;
   text-align: left;
-  width: 46em;
+  width: 47em;
   background: #fff;
 }
 
@@ -23,16 +23,6 @@ tt, pre {
 
 tt {
   color: #022;
-}
-
-pre {
-  border: 0;
-  border-top: 1px solid #DDD;
-  border-bottom: 1px solid #DDD;
-  padding: 1em;
-  margin: 1em 0 1em 0;
-  width: auto;
-  overflow: auto;
 }
 
 a {
@@ -146,81 +136,52 @@ table.list th:nth-child(1) { font-family: "PragmataPro", "Consolas"; font-size: 
 table.list th:nth-child(2) { padding-right: .5em; width: 1em; }
 table.list th:nth-child(3) { padding-left: 0em; }
 
-/*
-tt {
-  display: inline-block;
-  background: #CFC;
-  border-radius: .4em;
-  padding: .05em .2em;
+pre {
+  padding: 1em;
+  margin: 1em 0 1em 0;
+  width: auto;
+  overflow: auto;
 }
-*/
 
 pre * {
   font-weight: normal;
   text-decoration: none;
 }
 
-.pre {
-  white-space: pre;
-}
-
 pre.text {
   border: 0;
   padding: 1em 0 1em 1em;
   margin: 0;
+  border: 1px dashed #bbb;
+  border-width: 1px 0;
 }
 
-pre.text i {
-  font: italic 95%/130% Verdana, sans-serif;
-}
+pre.text i { font: italic 100%/130% Verdana, sans-serif }
+pre.text s { font: normal 100%/130% Verdana, sans-serif }
 
-pre.text s {
-  font: normal 95%/130% Verdana, sans-serif;
+pre.code s { color: #8A8 }
+pre.code u { color: #A00 }
+pre.code i { color: #00A }
+pre.code b { font-weight: 400; font-style: italic; color: #050 }
+
+pre.hl, pre.code {
+  margin: 1em 0;
+  padding: 1em 0 1em 1em;
+  background: linear-gradient(90deg, rgba(10,10,10,.03),rgba(0,0,0,0));
+  border-radius: .3em;
 }
 
 pre.output {
-  border: none;
-  padding: 0 0 1px 2em;
+  padding: 0 0 0 2em !important;
+  margin: 0 !important;
+  background: transparent;
 }
 
-pre.code b {
-  color: blue;
-}
-
-pre.code s {
-  color: #8A8;
-}
-
-pre.code u {
-  color: #A00;
-}
-
-pre.code em {
-  font-style: italic;
-  color: #00A;
-}
-
-pre.code tt {
-  font-size: 100%;
-  font-style: italic;
-  color: #050;
-}
-
-pre.hl b {color: #008}
-pre.hl i {color: #660}
-pre.hl s {color: #999; font-style:italic; }
-pre.hl u {color: #063}
-
-pre, pre.hl, pre.hl * {
+/*pre {
   text-decoration: none;
   font-weight: normal;
   font-style: normal;
-}
-
-pre.nohighlight * {
-  color: #112 !important;
-  font-style: normal !important;
-}
+}*/
 
 ul {
   padding: 0;
@@ -266,6 +227,19 @@ ul.toc a:hover {
 ul.toc s,
 ul.toc s a {
   color: #999 !important;
+}
+
+.author {
+  margin-top: 2em;
+  padding-top: 2pt;
+  border-top: 1px solid #ccc;
+  text-align: right;
+  font-style: italic;
+  font-size: 70%;
+  color: #555;
+}
+.author a {
+  color: #559;
 }
 
 *[tooltip]:after,

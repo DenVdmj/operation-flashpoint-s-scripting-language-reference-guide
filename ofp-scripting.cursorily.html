@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Язык описания сценариев игры Operation Flashpoint. Галопом по европам.</title>
 <link href=".rsc/style.css" rel="stylesheet" type="text/css" />
+<script src=".rsc/highlight.pack.js"></script>
 <script src=".rsc/init.js"></script>
 <script src="hyphened-text.js"></script>
 </head>
@@ -51,89 +52,86 @@
 
 <h4 id="toc03">Совсем ужасный код</h4>
 
-<pre class="hl"><s>; увеличивает число на единицу</s>
+<pre class="hl">; увеличивает число на единицу
 
-<b>?</b> a <b>==</b> 0 <b>:</b> b <b>=</b> 1; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 1 <b>:</b> b <b>=</b> 2; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 2 <b>:</b> b <b>=</b> 3; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 3 <b>:</b> b <b>=</b> 4; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 4 <b>:</b> b <b>=</b> 5; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 5 <b>:</b> b <b>=</b> 6; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 6 <b>:</b> b <b>=</b> 7; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 7 <b>:</b> b <b>=</b> 8; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 8 <b>:</b> b <b>=</b> 9; <b>goto</b> <i>"end"</i>
-<b>?</b> a <b>==</b> 9 <b>:</b> b <b>=</b> 10; <b>goto</b> <i>"end"</i>
+? a == 0 : b = 1; goto "end"
+? a == 1 : b = 2; goto "end"
+? a == 2 : b = 3; goto "end"
+? a == 3 : b = 4; goto "end"
+? a == 4 : b = 5; goto "end"
+? a == 5 : b = 6; goto "end"
+? a == 6 : b = 7; goto "end"
+? a == 7 : b = 8; goto "end"
+? a == 8 : b = 9; goto "end"
+? a == 9 : b = 10; goto "end"
 
-<b>#end</b>
-</pre>
+#end</pre>
 
 <p>Узнаете? На таком коде бывает даже ставят своё имя!</p>
 
-<pre class="hl"><s>; Скрипт увеличения числа на единицу. DenVdmj (c) 2006
+<pre class="hl">; Скрипт увеличения числа на единицу. DenVdmj (c) 2006
 ; Если Вам понравилася эта ИДЕЯ вы можете использовать её в своих скриптах,
 ; только не забудте указать МЕНЯ как АВТОРА этой ИДЕИ! Я думаю Вы поняли,
 ; что все ОЧЕНЬ ПРОСТО, точно также можно увеличивать на ДВОЙКУ и на ТРОЙКУ
-; и на ДРУГИЕ ЧИСЛА!</s>
+; и на ДРУГИЕ ЧИСЛА!
 
-<b>?</b> CHISLO <b>==</b> 0 <b>:</b> RESULTAT <b>=</b> 1; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 1 <b>:</b> RESULTAT <b>=</b> 2; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 2 <b>:</b> RESULTAT <b>=</b> 3; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 3 <b>:</b> RESULTAT <b>=</b> 4; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 4 <b>:</b> RESULTAT <b>=</b> 5; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 5 <b>:</b> RESULTAT <b>=</b> 6; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 6 <b>:</b> RESULTAT <b>=</b> 7; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 7 <b>:</b> RESULTAT <b>=</b> 8; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 8 <b>:</b> RESULTAT <b>=</b> 9; <b>goto</b> <i>"KONETS"</i>
-<b>?</b> CHISLO <b>==</b> 9 <b>:</b> RESULTAT <b>=</b> 10; <b>goto</b> <i>"KONETS"</i>
+? CHISLO == 0 : RESULTAT = 1; goto "KONETS"
+? CHISLO == 1 : RESULTAT = 2; goto "KONETS"
+? CHISLO == 2 : RESULTAT = 3; goto "KONETS"
+? CHISLO == 3 : RESULTAT = 4; goto "KONETS"
+? CHISLO == 4 : RESULTAT = 5; goto "KONETS"
+? CHISLO == 5 : RESULTAT = 6; goto "KONETS"
+? CHISLO == 6 : RESULTAT = 7; goto "KONETS"
+? CHISLO == 7 : RESULTAT = 8; goto "KONETS"
+? CHISLO == 8 : RESULTAT = 9; goto "KONETS"
+? CHISLO == 9 : RESULTAT = 10; goto "KONETS"
 
-<b>#KONETS</b>
-</pre>
+#KONETS</pre>
 
 <p>Вам смешно? Мне — нисколько, ведь люди действительно с удовольствием пользуются.
 Я обнаглею, и, невзирая на объем такого кода, распишу его здесь полностью:</p>
 
-<pre class="hl">_unit <b>= _this select</b> 0
-_num <b>=</b> <u>random</u><b>(</b>10<b>)
-?</b>_num <b>&gt;=</b> 9<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign9.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 8<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign8.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 7<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign7.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 6<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign6.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 5<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign5.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 4<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign4.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 3<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign3.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 2<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign2.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num <b>&gt;=</b> 1<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign1.paa"</i><b>], goto</b> <i>"num2"</i>
-<b>?</b>_num  <b>&lt;</b> 1<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>0<b>,</b> <i>"\PathTo\Sign0.paa"</i><b>], goto</b> <i>"num2"</i>
+<pre class="hl">_unit = _this select 0
+_num = random(10)
+?_num &gt;= 9: _unit setObjectTexture [0, "\PathTo\Sign9.paa"], goto "num2"
+?_num &gt;= 8: _unit setObjectTexture [0, "\PathTo\Sign8.paa"], goto "num2"
+?_num &gt;= 7: _unit setObjectTexture [0, "\PathTo\Sign7.paa"], goto "num2"
+?_num &gt;= 6: _unit setObjectTexture [0, "\PathTo\Sign6.paa"], goto "num2"
+?_num &gt;= 5: _unit setObjectTexture [0, "\PathTo\Sign5.paa"], goto "num2"
+?_num &gt;= 4: _unit setObjectTexture [0, "\PathTo\Sign4.paa"], goto "num2"
+?_num &gt;= 3: _unit setObjectTexture [0, "\PathTo\Sign3.paa"], goto "num2"
+?_num &gt;= 2: _unit setObjectTexture [0, "\PathTo\Sign2.paa"], goto "num2"
+?_num &gt;= 1: _unit setObjectTexture [0, "\PathTo\Sign1.paa"], goto "num2"
+?_num  &lt; 1: _unit setObjectTexture [0, "\PathTo\Sign0.paa"], goto "num2"
 
-<b>#num2</b>
-_num <b>=</b> <u>random</u><b>(</b>10<b>)
-?</b>_num <b>&gt;=</b> 9<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign9.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 8<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign8.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 7<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign7.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 6<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign6.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 5<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign5.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 4<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign4.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 3<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign3.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 2<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign2.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num <b>&gt;=</b> 1<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign1.paa"</i><b>], goto</b> <i>"num1"</i>
-<b>?</b>_num  <b>&lt;</b> 1<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>1<b>,</b> <i>"\PathTo\Sign0.paa"</i><b>], goto</b> <i>"num1"</i>
+#num2
+_num = random(10)
+?_num &gt;= 9: _unit setObjectTexture [1, "\PathTo\Sign9.paa"], goto "num1"
+?_num &gt;= 8: _unit setObjectTexture [1, "\PathTo\Sign8.paa"], goto "num1"
+?_num &gt;= 7: _unit setObjectTexture [1, "\PathTo\Sign7.paa"], goto "num1"
+?_num &gt;= 6: _unit setObjectTexture [1, "\PathTo\Sign6.paa"], goto "num1"
+?_num &gt;= 5: _unit setObjectTexture [1, "\PathTo\Sign5.paa"], goto "num1"
+?_num &gt;= 4: _unit setObjectTexture [1, "\PathTo\Sign4.paa"], goto "num1"
+?_num &gt;= 3: _unit setObjectTexture [1, "\PathTo\Sign3.paa"], goto "num1"
+?_num &gt;= 2: _unit setObjectTexture [1, "\PathTo\Sign2.paa"], goto "num1"
+?_num &gt;= 1: _unit setObjectTexture [1, "\PathTo\Sign1.paa"], goto "num1"
+?_num  &lt; 1: _unit setObjectTexture [1, "\PathTo\Sign0.paa"], goto "num1"
 
-<b>#num1</b>
-_num <b>=</b> <u>random</u><b>(</b>10<b>)
-?</b>_num <b>&gt;=</b> 9<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign9.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 8<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign8.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 7<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign7.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 6<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign6.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 5<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign5.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 4<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign4.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 3<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign3.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 2<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign2.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 1<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign1.paa"</i><b>], goto</b> <i>"exit"</i>
-<b>?</b>_num <b>&gt;=</b> 0<b>:</b> _unit <u>setObjectTexture</u> <b>[</b>2<b>,</b> <i>"\PathTo\Sign0.paa"</i><b>], goto</b> <i>"exit"</i>
+#num1
+_num = random(10)
+?_num &gt;= 9: _unit setObjectTexture [2, "\PathTo\Sign9.paa"], goto "exit"
+?_num &gt;= 8: _unit setObjectTexture [2, "\PathTo\Sign8.paa"], goto "exit"
+?_num &gt;= 7: _unit setObjectTexture [2, "\PathTo\Sign7.paa"], goto "exit"
+?_num &gt;= 6: _unit setObjectTexture [2, "\PathTo\Sign6.paa"], goto "exit"
+?_num &gt;= 5: _unit setObjectTexture [2, "\PathTo\Sign5.paa"], goto "exit"
+?_num &gt;= 4: _unit setObjectTexture [2, "\PathTo\Sign4.paa"], goto "exit"
+?_num &gt;= 3: _unit setObjectTexture [2, "\PathTo\Sign3.paa"], goto "exit"
+?_num &gt;= 2: _unit setObjectTexture [2, "\PathTo\Sign2.paa"], goto "exit"
+?_num &gt;= 1: _unit setObjectTexture [2, "\PathTo\Sign1.paa"], goto "exit"
+?_num &gt;= 0: _unit setObjectTexture [2, "\PathTo\Sign0.paa"], goto "exit"
 
-<b>#exit
-exit</b>
-</pre>
+#exit
+exit</pre>
 
 <p>И это только для трех разрядов числа!
 Можно только теряться в догадках откуда берутся такие «гениальные»
@@ -143,52 +141,49 @@ exit</b>
 А ведь все решение для абсолютно любых входных параметров (сам номер, имена текстур и секции) умещается
 в несколько строк кода. И это делается один раз на всю жизнь и на любые проекты.</p>
 
-<pre class="hl">_object <b>=</b>
-_number <b>=</b>
-_texturePathMask <b>=</b> <i>"\Path\To\Signatures\Sign%1colorRed.paa"</i>;
-_sections <b>= [</b>5<b>,</b>4<b>,</b>3<b>,</b>2<b>,</b>1<b>,</b>0<b>]</b>; <s>// секции перечисленные от младшего
-                           // разряда к старшему, т.е. слева направо</s>
-<b>{</b>
-    <s>// отбросить дробную часть</s>
-    _number <b>=</b> _number <b>-</b> _number <b>%</b> 1;
-    <s>// установить текстуру c цифрой, остаток деления _number на 10
-    // вернёт младший десятичный разряд числа</s>
-    _object <u>setObjectTexture</u> <b>[</b>_x<b>,</b> <u>format</u> <b>[</b>_texturePathMask<b>,</b> _number <b>%</b> 10<b>]]</b>;
-    <s>// сдвинуть _number на один десятичный разряд вправо</s>
-    _number <b>=</b> _number <b>/</b> 10
-<b>} foreach</b> _sections;
-</pre>
+<pre class="hl">_object =
+_number =
+_texturePathMask = "\Path\To\Signatures\Sign%1colorRed.paa";
+_sections = [5,4,3,2,1,0]; // секции перечисленные от младшего
+                           // разряда к старшему, т.е. слева направо
+{
+    // отбросить дробную часть
+    _number = _number - _number % 1;
+    // установить текстуру c цифрой, остаток деления _number на 10
+    // вернёт младший десятичный разряд числа
+    _object setObjectTexture [_x, format [_texturePathMask, _number % 10]];
+    // сдвинуть _number на один десятичный разряд вправо
+    _number = _number / 10
+} foreach _sections;</pre>
 
 И еще раз для самых занятых, в виде скрипта принимающего параметры:
-<pre class="hl"><s>;// args: [объект, номер, маска пути/имени файла сигнатуры, массив секций]</s>
-_num <b>= _this select</b> 1;
-<b>{
-    </b>_num <b>=</b> _num <b>-</b> _num <b>%</b> 1;
-<b>    _this select</b> 0 <u>setObjectTexture</u> <b>[</b>_x<b>,</b> <u>format</u> <b>[_this select</b> 2<b>,</b> _num <b>%</b> 10<b>]]</b>;
-<b>    </b>_num <b>=</b> _num <b>/</b> 10
-<b>} foreach (_this select</b> 3<b>)</b>
-</pre>
+<pre class="hl">;// args: [объект, номер, маска пути/имени файла сигнатуры, массив секций]
+_num = _this select 1;
+{
+    _num = _num - _num % 1;
+    _this select 0 setObjectTexture [_x, format [_this select 2, _num % 10]];
+    _num = _num / 10
+} foreach (_this select 3)</pre>
 <p>Можете поудалять переводы строк чтобы вызывать это командой exec.</p>
 
 <p>Вот еще один совершенно реальный образчик стиля которым написано немало скриптов:</p>
 
-<pre class="hl"><b>#loop</b>
-_dam<b>=</b><u>getdammage</u> _unit
-<b>?(</b>_dam<b>==</b>0<b>) : goto</b> <i>"start"</i>
-<b>?(</b>_dam<b>==</b>1<b>) : goto</b> <i>"end"</i>
-<b>?(</b>_dam<b>&lt;=</b>0.1<b>):</b>_unit <u>setdammage</u> _dam<b>+</b>0<b>,</b>01
-<b>?(</b>_dam<b>&lt;=</b>0.2<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.1<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.02<b>)
-?(</b>_dam<b>&lt;=</b>0.3<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.2<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.03<b>)
-?(</b>_dam<b>&lt;=</b>0.4<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.3<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.04<b>)
-?(</b>_dam<b>&lt;=</b>0.5<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.4<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.05<b>)
-?(</b>_dam<b>&lt;=</b>0.6<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.5<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.06<b>)
-?(</b>_dam<b>&lt;=</b>0.7<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.6<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.07<b>)
-?(</b>_dam<b>&lt;=</b>0.8<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.7<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.08<b>)
-?(</b>_dam<b>&lt;=</b>0.9<b>) &amp;&amp; (</b>_dam<b>&gt;</b>0.8<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.09<b>)
-?(</b>_dam<b>&gt;</b>0.9<b>):</b>_unit <u>setdammage</u> <b>(</b>_dam<b>+</b>0.1<b>)</b>
-<u>~10</u>
-<b>goto </b><i>"loop"</i>
-</pre>
+<pre class="hl">#loop
+_dam=getdammage _unit
+?(_dam==0) : goto "start"
+?(_dam==1) : goto "end"
+?(_dam&lt;=0.1):_unit setdammage _dam+0,01
+?(_dam&lt;=0.2) &amp;&amp; (_dam&gt;0.1):_unit setdammage (_dam+0.02)
+?(_dam&lt;=0.3) &amp;&amp; (_dam&gt;0.2):_unit setdammage (_dam+0.03)
+?(_dam&lt;=0.4) &amp;&amp; (_dam&gt;0.3):_unit setdammage (_dam+0.04)
+?(_dam&lt;=0.5) &amp;&amp; (_dam&gt;0.4):_unit setdammage (_dam+0.05)
+?(_dam&lt;=0.6) &amp;&amp; (_dam&gt;0.5):_unit setdammage (_dam+0.06)
+?(_dam&lt;=0.7) &amp;&amp; (_dam&gt;0.6):_unit setdammage (_dam+0.07)
+?(_dam&lt;=0.8) &amp;&amp; (_dam&gt;0.7):_unit setdammage (_dam+0.08)
+?(_dam&lt;=0.9) &amp;&amp; (_dam&gt;0.8):_unit setdammage (_dam+0.09)
+?(_dam&gt;0.9):_unit setdammage (_dam+0.1)
+~10
+goto "loop"</pre>
 <p>Совершенно не важен именно этот код — дело в том, что такой подход процветает среди начинающих скриптовать.</p>
 
 <p>Никогда так не делайте — придумайте свою супер-формулу здоровья, или чего угодно, что вы собираетесь
@@ -212,46 +207,41 @@ _dam<b>=</b><u>getdammage</u> _unit
 
 <p>Никогда не делайте так:</p>
 
-<pre class="hl">_car <u>addWeaponCargo</u> <b>[</b><i>"SomeGun"</i><b>,</b>1<b>]</b>;
-_car <u>addWeaponCargo</u> <b>[</b><i>"OtherGun"</i><b>,</b>1<b>]</b>;
-_car <u>addWeaponCargo</u> <b>[</b><i>"SuperGun"</i><b>,</b>1<b>]</b>;
-_car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperGun"</i><b>,</b>1<b>]</b>;
-<s>// еще с десяток раз</s>
-_car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperMegaGun"</i><b>,</b>1<b>]</b>
-</pre>
+<pre class="hl">_car addWeaponCargo ["SomeGun",1];
+_car addWeaponCargo ["OtherGun",1];
+_car addWeaponCargo ["SuperGun",1];
+_car addWeaponCargo ["SuperPuperGun",1];
+// еще с десяток раз
+_car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 <p>Выносите данные о стволах в файлы с данными:</p>
 
-<pre class="hl"><b>[</b>
-   <i>"SomeGun"</i><b>,</b>
-   <i>"OtherGun"</i><b>,</b>
-   <i>"SuperGun"</i><b>,</b>
-   <i>"SuperPuperGun"</i><b>,</b>
-   <i>"SuperPuperMegaGun"</i>
-<b>]</b>
-</pre>
+<pre class="hl">[
+   "SomeGun",
+   "OtherGun",
+   "SuperGun",
+   "SuperPuperGun",
+   "SuperPuperMegaGun"
+]</pre>
 <p>И используйте</p>
 
-<pre class="hl"><b>{</b>
-    _car <u>addWeaponCargo</u> <b>[</b>_x<b>,</b> 1<b>]
-} foreach call</b> <u>preprocessFile</u> <i>"resources.sqf"</i>
-</pre>
+<pre class="hl">{
+    _car addWeaponCargo [_x, 1]
+} foreach call preprocessFile "resources.sqf"</pre>
 
 <p>Вы легко можете улучшить скрипт, храня магазины и прочие относящиеся к оружию данные вместе:</p>
 
-<pre class="hl"><b>[
-   [</b><i>"SomeGun"</i><b>,</b> <i>"SomeGunMag"</i><b>],
-   [</b><i>"OtherGun"</i><b>,</b> <i>"OtherGunMag"</i><b>],
-   [</b><i>"SuperGun"</i><b>,</b> <i>"SuperGunMag"</i><b>],
-   [</b><i>"SuperPuperGun"</i><b>,</b> <i>"SuperPuperGunMag"</i><b>],
-   [</b><i>"SuperPuperMegaGun"</i><b>,</b> <i>"SuperPuperMegaGunMag"</i><b>]
-]</b>
-</pre>
-<pre class="hl"><b>{</b>
-    _car <u>addWeaponCargo</u> <b>[</b>_x <b>select</b> 0<b>,</b> 1<b>]</b>;
-    _car <u>addMagazineCargo</u> <b>[</b>_x <b>select</b> 1<b>,</b> 4<b>]
+<pre class="hl">[
+   ["SomeGun", "SomeGunMag"],
+   ["OtherGun", "OtherGunMag"],
+   ["SuperGun", "SuperGunMag"],
+   ["SuperPuperGun", "SuperPuperGunMag"],
+   ["SuperPuperMegaGun", "SuperPuperMegaGunMag"]
+]</pre>
+<pre class="hl">{
+    _car addWeaponCargo [_x select 0, 1];
+    _car addMagazineCargo [_x select 1, 4]
 
-} foreach call</b> <u>preprocessFile</u> <i>"resources.sqf"</i>
-</pre>
+} foreach call preprocessFile "resources.sqf"</pre>
 <p>Используйте такой подход даже если ваш скрипт очень простой; если Вы не хотите использовать
 лишние файлы, то хотя-бы выносите данные в начало скрипта, до любого кода,
 так чтобы Ваши пользователи смогли без мучений добраться до них.</p>
@@ -278,31 +268,29 @@ _car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperMegaGun"</i><b>,</b>1<b>]</b>
 
 <p>Представте себе табличку:</p>
 
-<pre class="hl">_weapons <b>=</b>
-<s>//     gun            magazine       optic   silencer</s>
-<b>[
-     [</b><i>"ICP_val"</i><b>,</b>     <i>"ICP_valmag"</i><b>,</b>   <i>""</i><b>,</b>     <i>"integrated"</i><b>],
-     [</b><i>"ICP_valpso"</i><b>,</b>  <i>"ICP_valmag"</i><b>,</b>   <i>"pso"</i><b>,</b>  <i>"integrated"</i><b>],
-     [</b><i>"ICP_vss"</i><b>,</b>     <i>"ICP_vssmag"</i><b>,</b>   <i>"pso"</i><b>,</b>  <i>"integrated"</i><b>],
-     [</b><i>"ICP_ak74"</i><b>,</b>    <i>"ICP_ak74mag"</i><b>,</b>  <i>""</i><b>,</b>     <i>""</i>          <b>],
-     [</b><i>"ICP_ak74mo"</i><b>,</b>  <i>"ICP_ak74mag"</i><b>,</b>  <i>"pso"</i><b>,</b>  <i>""</i>          <b>]
-]</b>
-</pre>
+<pre class="hl">_weapons =
+//     gun            magazine       optic   silencer
+[
+     ["ICP_val",     "ICP_valmag",   "",     "integrated"],
+     ["ICP_valpso",  "ICP_valmag",   "pso",  "integrated"],
+     ["ICP_vss",     "ICP_vssmag",   "pso",  "integrated"],
+     ["ICP_ak74",    "ICP_ak74mag",  "",     ""          ],
+     ["ICP_ak74mo",  "ICP_ak74mag",  "pso",  ""          ]
+]</pre>
 <p>Давайте напишем пару-тройку полезных функций для работы с такой табличкой.
 В подобных табличках лишь один столбец содержит гарантированно уникальные значения,
 если это не так, то это какая то другая табличка )).
 Значения такого столбца можно назвать ключами, в нашем случае это столбец с названиями стволов, пусть
 следующая функция будет возвращать нам ряд по ключу (названию ствола):</p>
 
-<pre class="hl">_getByKey <b>= {</b> <s>// args: table, key value</s>
-    <b>private [</b><i>"_tbl"</i><b>,</b> <i>"_key"</i><b>,</b> <i>"_i"</i><b>]</b>;
-    _tbl <b>= _this select</b> 0;
-    _key <b>= _this select</b> 2;
-    _i <b>=</b> 0;
-    <b>while {</b> _key <b>!= (</b>_tbl <b>select</b> _i<b>) select</b> 0 <b>} do {</b> _i <b>=</b> _i <b>+</b> 1 <b>}</b>;
-    <b>if (</b> _i <b>&lt;</b> <u>count</u> _tbl <b>) then {</b> _tbl <b>select</b> _i <b>} else { [] }
-}</b>
-</pre>
+<pre class="hl">_getByKey = { // args: table, key value
+    private ["_tbl", "_key", "_i"];
+    _tbl = _this select 0;
+    _key = _this select 2;
+    _i = 0;
+    while { _key != (_tbl select _i) select 0 } do { _i = _i + 1 };
+    if ( _i &lt; count _tbl ) then { _tbl select _i } else { [] }
+}</pre>
 <p>Назначение такой функции весьма понятно — вызов:</p>
 
 <pre class="hl output"><b>([</b>_weapons<b>,</b> <i>"ICP_vss"</i><b>] call</b> _getByKey<b>) select</b> 1</pre>
@@ -314,18 +302,17 @@ _car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperMegaGun"</i><b>,</b>1<b>]</b>
 <p>Еще одна важная операция — это получение всех рядов по совпавшим значениям в определенных столбцах,
 это поможет нам в ситуации когда мы захотим получить все стволы которые используют определенный магазин или оптику:</p>
 
-<pre class="hl">_selectByColumn <b>= {</b> <s>// args: table, column, value</s>
-    <b>private [</b><i>"_tbl"</i><b>,</b> <i>"_col"</i><b>,</b> <i>"_val"</i><b>,</b> <i>"_sel"</i><b>]</b>;
-    _tbl <b>= _this select</b> 0;
-    _col <b>= _this select</b> 1;
-    _val <b>= _this select</b> 2;
-    _sel <b>= []</b>;
-    <b>{
-        if (</b> _x <b>select</b> _col <b>==</b> _val <b>) then {</b> _sel <u>set</u> <b>[</b><u>count</u> _sel<b>,</b> _x<b>] }
-    } foreach</b> _tbl;
-    _sel <s>// return selection</s>
-<b>}</b>
-</pre>
+<pre class="hl">_selectByColumn = { // args: table, column, value
+    private ["_tbl", "_col", "_val", "_sel"];
+    _tbl = _this select 0;
+    _col = _this select 1;
+    _val = _this select 2;
+    _sel = [];
+    {
+        if ( _x select _col == _val ) then { _sel set [count _sel, _x] }
+    } foreach _tbl;
+    _sel // return selection
+}</pre>
 <p>Ок, теперь вызов:</p>
 
 <pre class="hl output"><b>[</b>_weapons<b>,</b> 1<b>,</b> <i>"ICP_ak74mag"</i><b>] call</b> _selectByColumn</pre>
@@ -360,14 +347,13 @@ _car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperMegaGun"</i><b>,</b>1<b>]</b>
 вместо простого значения она принимала калбэк функцию определяющую подходит нам этот ряд или нет.
 Итак создадим еще одну функцию:</p>
 
-<pre class="hl">_selectByCondition <b>= {</b> <s>// args: table, condition</s>
-    <b>private</b> <i>"_sel"</i>; _sel <b>= []</b>;
-    <b>{
-        if (</b> _x <b>call (_this select</b> 1<b>) ) then {</b> _sel <u>set</u> <b>[</b><u>count</u> _sel<b>,</b> _x<b>] }
-    } foreach (_this select</b> 0<b>)</b>;
-    _sel <s>// return selection</s>
-<b>}</b>;
-</pre>
+<pre class="hl">_selectByCondition = { // args: table, condition
+    private "_sel"; _sel = [];
+    {
+        if ( _x call (_this select 1) ) then { _sel set [count _sel, _x] }
+    } foreach (_this select 0);
+    _sel // return selection
+};</pre>
 <p>Эта функция совсем небольшая, так как всю проверку мы вытащили наружу, и казалось бы,
 что можно обойтись совсем без этой функции, но все же с ней запрос выглядит осмысленней:</p>
 
@@ -444,8 +430,7 @@ _car <u>addWeaponCargo</u> <b>[</b><i>"SuperPuperMegaGun"</i><b>,</b>1<b>]</b>
 <pre class="hl">MSPMOD_TracePlayer_currentVehicle
 MSPMOD_TracePlayer_usedVehicle
 MSPMOD_TracePlayer_usedWeapons
-MSPMOD_TracePlayer_killedEnemy
-</pre>
+MSPMOD_TracePlayer_killedEnemy</pre>
 
 <p>Можно использовать в качестве склеивающих символов двойное подчеркивание «__».</p>
 
@@ -455,15 +440,14 @@ MSPMOD_TracePlayer_killedEnemy
 Однако если существует возможность стартовать наши скрипты из некоторого общего места —
 другого «родительского» скрипта, то вполне можно обойтись локальными переменными.</p>
 
-<pre class="hl"><s>// массив с именами скриптов</s>
-_processes <b>= []</b>;
+<pre class="hl">// массив с именами скриптов
+_processes = [];
 
-<s>// массив с любыми данными</s>
-_sharedData <b>= []</b>;
+// массив с любыми данными
+_sharedData = [];
 
-<s>// каждый из запущенных процессов получит доступ к _sharedData</s>
-<b>{</b> _sharedData <b>exec</b> _x <b>} foreach</b> _processes;
-</pre>
+// каждый из запущенных процессов получит доступ к _sharedData
+{ _sharedData exec _x } foreach _processes;</pre>
 <p>Таким образом массив _sharedData становится общей областью данных как для текущего
 так и для дочерних процессов. Помните об этом способе, и если в Вашем случае
 он может заменить глобальные переменные — используйте его.</p>
@@ -473,109 +457,103 @@ _sharedData <b>= []</b>;
 чтобы не таскать их по десять раз из файла preprocessFile'ом. Можно давать им префикс в духе «globFunc»
 или просто «func», в таком случае удобно расположить все функции в одном файле:</p>
 
-<pre class="hl"><u>#define arg(x) = (_this select x)</u>
+<pre class="hl">#define arg(x) = (_this select x)
 
-<s>// [getpos unit, circlePosition, circleRadius] call funcInCircle</s>
+// [getpos unit, circlePosition, circleRadius] call funcInCircle
 
-funcInCircle <b>= {</b>
-<u>    #define mDeltaX ((_ppos select 0) - (_cpos select 0))
+funcInCircle = {
+    #define mDeltaX ((_ppos select 0) - (_cpos select 0))
     #define mDeltaY ((_ppos select 1) - (_cpos select 1))
-    #define mRadius (arg(2))</u>
-    <b>private [</b><i>"_ppos"</i><b>,</b><i>"_cpos"</i><b>]</b>;
-    _ppos <b>=</b> arg<b>(</b>0<b>)</b>;
-    _cpos <b>=</b> arg<b>(</b>1<b>)</b>;
-    mRadius <b>^</b> 2 <b>&gt;</b> mDeltaX <b>^</b> 2 <b>+</b> mDeltaY <b>^</b> 2
-<b>}</b>;
+    #define mRadius (arg(2))
+    private ["_ppos","_cpos"];
+    _ppos = arg(0);
+    _cpos = arg(1);
+    mRadius ^ 2 &gt; mDeltaX ^ 2 + mDeltaY ^ 2
+};
 
-<s>// [getpos unit1, getpos unit2] call funcGetDirToPos</s>
+// [getpos unit1, getpos unit2] call funcGetDirToPos
 
-funcGetDirToPos <b>= {
-    private[</b><i>"_p1"</i><b>,</b><i>"_p2"</i><b>,</b><i>"_dx"</i><b>,</b><i>"_dy"</i><b>]</b>;
-    _p1 <b>=</b> arg<b>(</b>0<b>)</b>;
-    _p2 <b>=</b> arg<b>(</b>1<b>)</b>;
-    _dx <b>= (</b>_p1 <b>select</b> 0<b>) - (</b>_p2 <b>select</b> 0<b>)</b>;
-    _dy <b>= (</b>_p1 <b>select</b> 1<b>) - (</b>_p2 <b>select</b> 1<b>)</b>;
-    <b>if (</b> _dx <b>==</b> 0 <b>&amp;&amp;</b> _dy <b>==</b> 0 <b>) then {
-        -</b>360 <s>// for calling side: error if negative</s>
-    <b>} else {
-        (</b> 180 <b>+ (</b>_dx <u>atan2</u> _dy<b>) ) %</b> 360
-    <b>}
-}</b>;
+funcGetDirToPos = {
+    private["_p1","_p2","_dx","_dy"];
+    _p1 = arg(0);
+    _p2 = arg(1);
+    _dx = (_p1 select 0) - (_p2 select 0);
+    _dy = (_p1 select 1) - (_p2 select 1);
+    if ( _dx == 0 &amp;&amp; _dy == 0 ) then {
+        -360 // for calling side: error if negative
+    } else {
+        ( 180 + (_dx atan2 _dy) ) % 360
+    }
+};
 
-<s>// и так далее... </s>
-</pre>
+// и так далее... </pre>
 <p>Но раз уж мы взялись бороться с глобальными именами, то решим,
 что не все функции бывают нужны часто,
 и иногда проще загрузить один такой набор функций:</p>
 
-<pre class="hl"><s>// файл library.libname.sqf</s>
-_library_libname <b>=
-{</b>
-    _funcInCircle <b>= {</b>
+<pre class="hl">// файл library.libname.sqf
+_library_libname =
+{
+    _funcInCircle = {
         ...
-    <b>}</b>;
+    };
 
-    _funcGetDirToPos <b>= {</b>
+    _funcGetDirToPos = {
         ...
-    <b>}</b>;
+    };
 
-    _funcNearestFromList <b>= {</b>
+    _funcNearestFromList = {
         ...
-    <b>}</b>;
-<b>}</b>;
+    };
+};
 
-<b>[</b><i>"_funcInCircle"</i><b>,</b> <i>"_funcGetDirToPos"</i><b>,</b> <i>"_funcNearestFromList"</i><b>]</b>
-</pre>
+["_funcInCircle", "_funcGetDirToPos", "_funcNearestFromList"]</pre>
 <p>При таком подходе переменные вида _library_libname всегда соответствуют названию файла библиотки "library.libname.sqf",
 и подключение библиотечных функций выглядит так:</p>
 
-<pre class="hl"><b>private</b> <i>"_library_libname"</i>;
-<b>private call</b> <u>preprocessFile</u> <i>"library.libname.sqf"</i>;
-<b>call</b> _library_libname;
-</pre>
+<pre class="hl">private "_library_libname";
+private call preprocessFile "library.libname.sqf";
+call _library_libname;</pre>
 <p>Но в действительности, это удобней только тогда, когда мы не хотим использовать глобальные функции.
 Можно значительно повысить удобство используя компромиссный вариант:</p>
 
-<pre class="hl">MSPMOD_LIBRARY_LIBNAME_EXPORT <b>=
-[</b>
-    <i>"_mspmod_library_libname"</i><b>,</b>
-    <i>"_funcInCircle"</i><b>,</b>
-    <i>"_funcGetDirToPos"</i><b>,</b>
-    <i>"_funcNearestFromList"</i>
-<b>]</b>;
+<pre class="hl">MSPMOD_LIBRARY_LIBNAME_EXPORT =
+[
+    "_mspmod_library_libname",
+    "_funcInCircle",
+    "_funcGetDirToPos",
+    "_funcNearestFromList"
+];
 
-MSPMOD_LIBRARY_LIBNAME <b>=
-{</b>
-    _funcInCircle <b>= {</b>
+MSPMOD_LIBRARY_LIBNAME =
+{
+    _funcInCircle = {
         ...
-    <b>}</b>;
+    };
 
-    _funcGetDirToPos <b>= {</b>
+    _funcGetDirToPos = {
         ...
-    <b>}</b>;
+    };
 
-    _funcNearestFromList <b>= {</b>
+    _funcNearestFromList = {
         ...
-    <b>}</b>;
-<b>}</b>;
-</pre>
+    };
+};</pre>
 <p>Мы лишь однажды вызываем инициализацию такой библиотеки, непосредственно при старте проекта:</p>
 
-<pre class="hl"><b>call</b> <u>preprocessFile</u> <i>"my.lib.sqf"</i></pre>
+<pre class="hl">call preprocessFile "my.lib.sqf"</pre>
 <p>И всегда можем получить в текущий контекст определенные в ней функции в два движения:</p>
 
-<pre class="hl"><b>private</b> MSPMOD_LIBRARY_LIBNAME_EXPORT;
-<b>call</b> MSPMOD_LIBRARY_LIBNAME;
-</pre>
+<pre class="hl">private MSPMOD_LIBRARY_LIBNAME_EXPORT;
+call MSPMOD_LIBRARY_LIBNAME;</pre>
 <p>В таком случае мы сокращаем количество глобальных имен до двух на каждую библиотеку,
 и вовсе ничего не таскаем раз за разом из файла — это делается только однажды.
 И если бы весь код заключенный в фигурные скобки «{}» транслировался в промежуточное
 представление, то такой способ был бы практически столь же быстрым как и вариант с глобальными функциями.
 Можно «экспортировать» и только нужные функции:</p>
 
-<pre class="hl"><b>private [</b><i>"_funcInCircle"</i><b>,</b> <i>"_funcNearestFromList"</i><b>]</b>;
-<b>call</b> MSPMOD_LIBRARY_LIBNAME;
-</pre>
+<pre class="hl">private ["_funcInCircle", "_funcNearestFromList"];
+call MSPMOD_LIBRARY_LIBNAME;</pre>
 <p>Нужно только помнить, что если в текущем контексте уже есть имена совпадающие с именами
 определёнными в библиотеке, они будут перезаписаны вызовом MSPMOD_LIBRARY_LIBNAME.</p>
 
@@ -595,33 +573,31 @@ MSPMOD_LIBRARY_LIBNAME <b>=
 на постоянный парсинг. Причем зачастую повторый парсинг одного и того же кода.
 Как-то я пытался соптимизировать проверку дистанции между двумя точками на плоскости:</p>
 
-<pre class="hl">
-00 funcNearestFromList <b>= {</b>
-01     <b>private [</b><i>"_nearest"</i><b>,</b> <i>"_mindistq"</i><b>,</b> <i>"_distq"</i><b>,</b> <i>"_pos"</i><b>,</b> <i>"_px"</i><b>,</b> <i>"_py"</i><b>]</b>;
-02     <s>// Квадрат минимальной найденной дистанции</s>
-03     _mindistq <b>= if (</b><u>count</u> <b>_this &gt;</b> 2<b>) then {(</b>arg<b>(</b>2<b>)) ^</b> 2<b>} else {</b>1e<b>+</b>10<b>}</b>;
-04     <s>// Найденный объект</s>
-05     _nearest <b>=</b> <u>objNull</u>;
-06     <s>// X и Y координаты заданной позиции</s>
-07     _px <b>=</b> arg<b>(</b>0<b>) select</b> 0;
-08     _py <b>=</b> arg<b>(</b>0<b>) select</b> 1;
-09     <s>// Для всех переданных объектов (два умножения на итерацию)</s>
-10     <b>{</b>
-11         <s>// Позиция очередного объекта (_pos) и квадрат</s>
-12         <s>// расстояния от объекта до заданной позиции (_distq)</s>
-13         _pos <b>=</b> <u>getpos</u> _x;
-14         _distq <b>= (</b>_px <b>- (</b>_pos <b>select</b> 0<b>)) ^</b> 2 <b>+ (</b>_py <b>- (</b>_pos <b>select</b> 1<b>)) ^</b> 2;
-15         <s>// Если текущий объект ближе предыдущего</s>
-16         <b>if (</b> _mindistq <b>&gt;</b> _distq <b>) then {</b>
-17             <s>// то обновить данные</s>
-18             _mindistq <b>=</b> _distq;
-19             _nearest <b>=</b> _x
-20         <b>}</b>
-21     <b>} foreach</b> arg<b>(</b>1<b>)</b>;
-22     <s>// Вернуть найденный объект</s>
+<pre class="hl">00 funcNearestFromList = {
+01     private ["_nearest", "_mindistq", "_distq", "_pos", "_px", "_py"];
+02     // Квадрат минимальной найденной дистанции
+03     _mindistq = if (count _this &gt; 2) then {(arg(2)) ^ 2} else {1e+10};
+04     // Найденный объект
+05     _nearest = objNull;
+06     // X и Y координаты заданной позиции
+07     _px = arg(0) select 0;
+08     _py = arg(0) select 1;
+09     // Для всех переданных объектов (два умножения на итерацию)
+10     {
+11         // Позиция очередного объекта (_pos) и квадрат
+12         // расстояния от объекта до заданной позиции (_distq)
+13         _pos = getpos _x;
+14         _distq = (_px - (_pos select 0)) ^ 2 + (_py - (_pos select 1)) ^ 2;
+15         // Если текущий объект ближе предыдущего
+16         if ( _mindistq &gt; _distq ) then {
+17             // то обновить данные
+18             _mindistq = _distq;
+19             _nearest = _x
+20         }
+21     } foreach arg(1);
+22     // Вернуть найденный объект
 23     _nearest
-24 <b>}</b>;
-</pre>
+24 };</pre>
 <p>Здесь избегается достаточно тяжелая оперция нахождения квадратного корня, и, в любом
 другом языке, даже интерпретируемом, это даёт некоторый, иногда ощутимый, прирост скорости.
 Однако, я был удивлен обаружив, что родной distance, работает в среднем в 12 раз
@@ -645,58 +621,57 @@ MSPMOD_LIBRARY_LIBNAME <b>=
 
 <p>Поскольку это не самый известный алгоритм, я привожу его здесь:</p>
 
-<pre class="hl"><s>/*
+<pre class="hl">/*
     Сортировка на пирамиде, O(n log n)
     модифицирует переданный массив
-*/</s>
+*/
 
-<b>private [</b><i>"_sift"</i><b>,</b> <i>"_arr"</i><b>,</b> <i>"_max"</i><b>,</b> <i>"_i"</i><b>,</b> <i>"_l"</i><b>,</b> <i>"_u"</i><b>,</b> <i>"_c"</i><b>,</b> <i>"_tmp"</i><b>]</b>;
+private ["_sift", "_arr", "_max", "_i", "_l", "_u", "_c", "_tmp"];
 
-<u>#define incSwapCounter _swapCounter = _swapCounter + 1
-#define sift(a,b)  _l=(a); _u=(b); call _sift</u>
+#define incSwapCounter _swapCounter = _swapCounter + 1
+#define sift(a,b)  _l=(a); _u=(b); call _sift
 
-_sift <b>= {</b>
-    _tmp <b>=</b> _arr <b>select</b> _l;
-    <b>while {</b>
-        _c <b>=</b> _l<b>+</b>_l<b>+</b>1;
-        <b>if (</b>_c <b>&lt;=</b> _u<b>) then {
-            if (</b>_c <b>&lt;</b> _u<b>) then {
-                if (</b> _arr <b>select</b> _c<b>+</b>1 <b>&gt;</b> _arr <b>select</b> _c <b>) then {</b>
-                    _c <b>=</b> _c <b>+</b> 1;
-                <b>}</b>;
-            <b>}</b>;
-            <b>if (</b>_tmp <b>&lt;</b> _arr <b>select</b> _c<b>) then {</b>
-                _arr <u>set</u> <b>[</b>_l<b>,</b> _arr <b>select</b> _c<b>]</b>;
-                _l <b>=</b> _c;
+_sift = {
+    _tmp = _arr select _l;
+    while {
+        _c = _l+_l+1;
+        if (_c &lt;= _u) then {
+            if (_c &lt; _u) then {
+                if ( _arr select _c+1 &gt; _arr select _c ) then {
+                    _c = _c + 1;
+                };
+            };
+            if (_tmp &lt; _arr select _c) then {
+                _arr set [_l, _arr select _c];
+                _l = _c;
                 incSwapCounter;
                 <em>true</em>
-            <b>}
+            }
         }
-    } do {}</b>;
-    _arr <u>set</u> <b>[</b>_l<b>,</b> _tmp<b>]</b>;
-<b>}</b>;
+    } do {};
+    _arr set [_l, _tmp];
+};
 
-_arr <b>= _this</b>;
-_max <b>=</b> <u>count</u> _arr <b>-</b> 1;
+_arr = _this;
+_max = count _arr - 1;
 
-_i <b>=</b> _max<b>/</b>2 <b>call {_this - _this %</b> 1<b>}</b>;
+_i = _max/2 call {_this - _this % 1};
 
-<b>while {</b> _i <b>&gt;=</b> 0 <b>} do {</b> sift<b>(</b>_i<b>,</b>_max<b>)</b>; _i <b>=</b> _i<b>-</b>1 <b>}</b>;
+while { _i &gt;= 0 } do { sift(_i,_max); _i = _i-1 };
 
-_i <b>=</b> _max;
+_i = _max;
 
-<b>while {</b> _i <b>&gt;</b> 0 <b>} do {</b>
+while { _i &gt; 0 } do {
 
-    _tmp <b>=</b> _arr <b>select</b> 0;
-    _arr <u>set</u> <b>[</b>0<b>,</b> _arr <b>select</b> _i<b>]</b>;
-    _arr <u>set</u> <b>[</b>_i<b>,</b> _tmp<b>]</b>;
+    _tmp = _arr select 0;
+    _arr set [0, _arr select _i];
+    _arr set [_i, _tmp];
     incSwapCounter;
 
-    sift<b>(</b>0<b>,</b>_i<b>-</b>1<b>)</b>; _i <b>=</b> _i<b>-</b>1
-<b>}</b>;
+    sift(0,_i-1); _i = _i-1
+};
 
-_arr
-</pre>
+_arr</pre>
 <p>Следующая таблица показывает скорость работы сортировок на пирамиде и пузырьками
 (количество перестановок и время работы (clock из NewFlash)):</p>
 
@@ -733,5 +708,6 @@ sort\hsort.v2.4.sqf:    swap:  4020   time: 0.625
 
 <p>Код сравниваемых сортировок и скрипт теста лежит в архиве.</p>
 
+<div class="author">Copyright © <a href="https://code.google.com/u/114481294814027320015/" rel="author">DenVdmj</a>, 2006–2014.</div>
 </body>
 </html>
