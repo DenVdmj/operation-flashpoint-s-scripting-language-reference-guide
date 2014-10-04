@@ -82,7 +82,7 @@
 Это учебный пример — на практике такие допущения делать нельзя!">«Второй» отделения игрока</span>:</p>
 
 
-<pre class="hl">driver vehicle (units player select 1)</pre>
+<pre class="hl sqf">driver vehicle (units player select 1)</pre>
 
 <p>Откройте комреф и посмотрите описание следующих команд:
 <tt tooltip="Синтаксис: driver vehicle;
@@ -133,11 +133,11 @@ driver <i>vehicle солдат</i>
 
 <p>Это значение (водитель) может использоваться в дальнейшем, например, так мы записываем его в переменную _my_driver,
 а затем отбираем у него все оружие:</p>
-<pre class="hl">_my_driver = driver vehicle (units player select 1)
+<pre class="hl sqf">_my_driver = driver vehicle (units player select 1)
 removeAllWeapons _my_driver</pre>
 
 <p>или делаем это одним выражением:</p>
-<pre class="hl">removeAllWeapons driver vehicle (units player select 1)</pre>
+<pre class="hl sqf">removeAllWeapons driver vehicle (units player select 1)</pre>
 
 <p><i>Примечание: здесь используется допущение, что нужный нам водитель и второй номер группы игрока существуют,
 если эти условия не будут выполняться — скрипт выдаст ошибку; это учебный пример, в действительной практике нужно выполнять явные проверки.</i></p>
@@ -179,17 +179,17 @@ removeAllWeapons _my_driver</pre>
 <h5 id="toc04">Передача и получение аргументов скрипта</h5>
 
 <p>Как мы уже знаем, скрипт вызывается следующей конструкцией:</p>
-<pre class="hl">«arg» exec "script_filename.sqs"</pre>
+<pre class="hl sqf">«arg» exec "script_filename.sqs"</pre>
 
 <p>«arg» — передаваемый в скрипт параметр.</p>
 
 <p>Интерпретатор не поддерживает передачу списка аргументов (и соответственно обращения к ним по имени из скрипта),
 поэтому чтобы передать более одного аргумента мы должны использовать массив:</p>
-<pre class="hl">[_arg0, _arg1, _arg2] exec "my_script.sqs"</pre>
+<pre class="hl sqf">[_arg0, _arg1, _arg2] exec "my_script.sqs"</pre>
 
 <p>С другой стороны, синтаксис команды exec обязывает нас всегда указывать её левый операнд,
 даже если мы не хотим ничего передавать в скрипт. В качестве фиктивного аргумента вполне подойдёт ноль:</p>
-<pre class="hl">0 exec "some_script.sqs"</pre>
+<pre class="hl sqf">0 exec "some_script.sqs"</pre>
 
 <p>Переданный параметр доступен из скрипта как предопределённая переменная <tt>_this</tt>.</p>
 
@@ -200,7 +200,7 @@ removeAllWeapons _my_driver</pre>
 чтобы удобно обращаться к каждому из них по имени мы сами должны создать переменные
 и записать в них соответствующие элементы массива.
 Получить указанный элемент массива позволяет команда <tt>select</tt>:</p>
-<pre class="hl">_arg0 = _this select 0
+<pre class="hl sqf">_arg0 = _this select 0
 _arg1 = _this select 1
 _arg2 = _this select 2</pre>
 
@@ -211,7 +211,7 @@ _arg2 = _this select 2</pre>
 что тот же символ используется для разделения выражений записанных в одну линию, поэтому следите, чтобы комментарий
 всегда стоял отдельной строкой.</p>
 
-<pre class="hl">; Это комментарий, здесь можно писать что угодно, но лучше
+<pre class="hl sqf">; Это комментарий, здесь можно писать что угодно, но лучше
 ; комментировать свой код, хотя бы для себя.</pre>
 
 <h5 id="toc06">Операторы управления процессом вычисления</h5>
@@ -231,11 +231,11 @@ _arg2 = _this select 2</pre>
 </i></p>
 
 <p>Например, выйдем из скрипта, если он получил пустой массив в качестве аргумента:</p>
-<pre class="hl">? count _this == 0 : exit</pre>
+<pre class="hl sqf">? count _this == 0 : exit</pre>
 
 <p>Но в большинстве случаев мы хотим выполнять не одно выражение, а несколько; если их немного можно
 использовать «;» для того, чтобы записать их в одной строке:</p>
-<pre class="hl">? count _this == 0 : hint "Ошибка: не передано ни одного агрумента!"; exit</pre>
+<pre class="hl sqf">? count _this == 0 : hint "Ошибка: не передано ни одного агрумента!"; exit</pre>
 <h6 id="toc08">Метки и оператор goto</h6>
 
 <p>Однако когда мы хотим выполнить более значительный объем кода, этот вариант совершенно не годится, и мы вынуждены
@@ -244,7 +244,7 @@ _arg2 = _this select 2</pre>
 Метка должна стоять отдельной строкой и предваряться знаком шарп («#»).</p>
 
 <p>Тот же код с использованием goto:</p>
-<pre class="hl">?! count _this == 0 : goto "ок"
+<pre class="hl sqf">?! count _this == 0 : goto "ок"
     hint "Ошибка: не передано ни одного агрумента!"
     exit
 #ок</pre>
@@ -256,7 +256,7 @@ _arg2 = _this select 2</pre>
 
 <p>Конструкцию «если ... то ... иначе» короче всего можно записать если
 изменить условие на обратное — обратите внимание на оператор «нот» («!»):</p>
-<pre class="hl">?! «condition» : goto "else"
+<pre class="hl sqf">?! «condition» : goto "else"
     ; код выполняемый если «condition» истинно
     goto "endif"
 #else
@@ -264,41 +264,41 @@ _arg2 = _this select 2</pre>
 #endif</pre>
 
 <p>В случае отсутствия части <tt>else</tt>, все упрощается до следующего:</p>
-<pre class="hl">?! «condition» : goto "endif"
+<pre class="hl sqf">?! «condition» : goto "endif"
     ; код выполняемый если «condition» истинно
 #endif</pre>
 
 <p>Так записывается цикл «do ... while ... », проверка условия выполняется в конце, т.о.
 тело цикла всегда выполняется, по меньшей мере, один раз:</p>
-<pre class="hl">#do
+<pre class="hl sqf">#do
     ; тело цикла выполняемое пока «condition» истинно
 ? «condition» : goto "do"</pre>
 
 <p>Цикл «while ... do ... ».
 В отличие от предыдущего «do while»,
 тело цикла «while do» может не выполнится ни разу (проверка его условия выполняется в начале). Обычно этот цикл записывают так:</p>
-<pre class="hl">#while
-    ?! «condition» : goto "end_loop"
+<pre class="hl sqf">#while
+    ?! «condition» : goto "end_loop"
     ; тело цикла выполняемое пока «condition» истинно
 goto "while"
 #end_loop</pre>
 
 <p>Однако существует <span tooltip="В кругах людей занимающихся программированием на языках, вынуждающих использовать условные переходы">вариант более популярный</span> (он выносит из цикла лишний оператор):</p>
-<pre class="hl">goto "loop_entry"
+<pre class="hl sqf">goto "loop_entry"
 #while
     ; тело цикла выполняемое пока «condition» истинно
     #loop_entry
 ? «condition» : goto "while"</pre>
 
 <p>Аналогично записывается цикл со счетчиком:</p>
-<pre class="hl">_counter = _start_number
+<pre class="hl sqf">_counter = _start_number
 #loop
     ; тело цикла
     _counter = _counter + 1
 ? _counter != last_number : goto "loop"</pre>
 
 <p>«Swicth» или выбор ветвления по ключу, имеющему тип <tt>String</tt>:</p>
-<pre class="hl">? _key in ["c1", "c2", "c3"] : goto _key
+<pre class="hl sqf">? _key in ["c1", "c2", "c3"] : goto _key
 goto "default"
 
 #c1
@@ -321,7 +321,7 @@ goto "default"
 <p>Если значение, по которому надо сделать выбор не относится к типу <tt>String</tt>,
 можно получить строку функцией <tt>format</tt> и затем использовать её в качестве цели <tt>goto</tt>.
 Этот способ неплох для типов <tt>Number</tt> (но надо следить, чтобы величина была целым числом) и <tt>Side</tt>:</p>
-<pre class="hl">_key = side zold
+<pre class="hl sqf">_key = side zold
 ; если есть метки для всех существующих сторон (лоджик, например,
 ; относится к собственной строне), то проверку можно опустить
 ? _key in [<em>west</em>, <em>east</em>, <em>resistance</em>, <em>civilian</em>] : goto format ["%1", _key]
@@ -350,7 +350,7 @@ goto "default"
 
 <p>В случае, когда ключевые величины — целые числа, подряд следующие друг за другом лучше обойтись без
 использования <tt>format</tt>:</p>
-<pre class="hl">; массив переходов
+<pre class="hl sqf">; массив переходов
 _jmptbl = ["nA", "nB", "nC", "nD"]
 ; если мы укладываемся в диапазон допустимых значений: перейти
 ? _key &gt;= 0 &amp;&amp; _key &lt; count _jmptbl : goto ( _jmptbl select _key )
@@ -404,32 +404,32 @@ goto "default"
 <p>Оператор «<tt>@</tt>» ожидает наступления выполнения указанного нами условия, приостанавливая на
 время ход работы скрипта.
 Синтаксис оператора прост:</p>
-<pre class="hl">@ «condition»</pre>
+<pre class="hl sqf">@ «condition»</pre>
 
 <p>«condition» — любое выражение возвращающее true или false.</p>
 
 <p>Фактически оператор выполняет выражение «condition» каждый такт игрового времени
 и заканчивает свою работу, как только выражение вернёт true.
 Например, следующий код ожидает посадку игрока в любую технику:</p>
-<pre class="hl">@ vehicle player != player</pre>
+<pre class="hl sqf">@ vehicle player != player</pre>
 
 <p>Если мы хотим выполнять некоторые действия во время ожидания
 (к примеру, проверку критического условия, когда дальнейшая работа скрипта не имеет смысла),
 то можно разместить любое количество выражений в одну строку разделяя их символом «;»,
 в таком случае условием будет считаться последнее указанное выражение:</p>
-<pre class="hl">@ if ( ! alive _soldier ) then { exit }; vehicle _soldier != _soldier</pre>
+<pre class="hl sqf">@ if ( ! alive _soldier ) then { exit }; vehicle _soldier != _soldier</pre>
 
 <p>Если условие нетривиально и код перестаёт умещаться в экранную ширину
 (не более 80 символов), то код проверки удобно оформить sqf-функцией,
 вынести её в отдельный файл и подключать через preprocessFile:</p>
-<pre class="hl">_my_condition = preprocessFile "my_condition.sqf"
+<pre class="hl sqf">_my_condition = preprocessFile "my_condition.sqf"
 @ call _my_condition</pre>
 
 <p>Всегда делайте это через переменную, это избавит скрипт от циклической загрузки файла.</p>
 <h6 id="toc10">Ожидание наступления указанного времени &amp;</h6>
 
 <p>Оператор «<tt>&amp;</tt>», приостанавливает ход работы скрипта до указанного аргументом времени:</p>
-<pre class="hl">_waitUntil = _time + 10
+<pre class="hl sqf">_waitUntil = _time + 10
 &amp;_waitUntil</pre>
 Данный пример ждёт десять секунд.
 
@@ -437,13 +437,13 @@ goto "default"
 <h6 id="toc11">Пауза ~</h6>
 
 <p>Используется гораздо чаще предыдущего оператора, пример, приведенный выше может быть записан проще с помощью паузы «<tt>~</tt>»:</p>
-<pre class="hl">~ 10</pre>
+<pre class="hl sqf">~ 10</pre>
 
 <h6 id="toc12">Выход из скрипта</h6>
 
 <p>Выход из скрипта должен осуществляться командой <tt>exit</tt>, часто её удобно
 использовать для досрочного выхода из скрипта:</p>
-<pre class="hl">? count units player == 0 : exit</pre>
+<pre class="hl sqf">? count units player == 0 : exit</pre>
 
 <p>Ну и, ради приличия, не забывайте добавлять её в конец каждого своего скрипта -))</p>
 <h4 id="toc13">Sqf функции</h4>
@@ -491,7 +491,7 @@ goto "default"
 Оператор <tt>call</tt> осуществляет вызов функции, фактически выполняя все выражения записанный в этой строке
 и возвращая результат последнего вычисления.
 Например, самая простая (и бесполезная) функция может выглядеть так:</p>
-<pre class="hl">_units_player = "units player"</pre>
+<pre class="hl sqf">_units_player = "units player"</pre>
 
 <p>теперь вызов « <tt>call _units_player</tt> » вернёт массив юнитов игрока.
 Здесь использовались двойные кавычки для того, чтобы подчеркнуть, что код выполняемый call — всего лишь строка,
@@ -499,7 +499,7 @@ goto "default"
 
 <p>Соответственно, чтобы выполнить любой sqf код размещенный в файле (рекомендуемое расширение .sqf)
 необходимо предварительно получить строку командой preprocessFile и лишь затем вызвать оператором call:</p>
-<pre class="hl">call preprocessFile "my_function.sqf"</pre>
+<pre class="hl sqf">call preprocessFile "my_function.sqf"</pre>
 
 <p>Здесь, выражение « <tt>preprocessFile "my_function.sqf"</tt> » вернёт обработанное
 препроцессором содержимое файла <i>"my_function.sqf"</i> в виде строки,
@@ -511,16 +511,16 @@ goto "default"
 
 <p>Функции могут принимать аргументы, так же как это делают sqs скрипты.
 Пример функции возвращающей преобразованный в строку аргумент:</p>
-<pre class="hl">_get_as_string = { format ["%1", _this] }</pre>
+<pre class="hl sqf">_get_as_string = { format ["%1", _this] }</pre>
 
 <p>Мы можем вызывать эту функцию так: « <tt>player call _get_as_string</tt> », проверим:</p>
-<pre class="hl">hint ( player call _get_as_string )</pre>
+<pre class="hl sqf">hint ( player call _get_as_string )</pre>
 
 <p>Одна sqf функция может содержать другие; например, создав файл с именем «my.sqf» и следующим содержанием:</p>
-<pre class="hl">private "_subfunction";
+<pre class="hl sqf">private "_subfunction";
 
 _subfunction = {
-    hint "эта функция находится в другой функции"
+    hint "эта функция находится в другой функции"
 };
 
 call _subfunction</pre>
@@ -537,37 +537,37 @@ call _subfunction</pre>
 
 <p>Функции состоят из выражений разделяемых символом «;».
 Пример, демонстрирующий общий синтаксис sqf функции:</p>
-<pre class="hl">_find_assoc_data = {
+<pre class="hl sqf">_find_assoc_data = {
 
-    // обьявляем переменные приватными
-    private["_value", "_array", "_index", "_ok"];
+    // обьявляем переменные приватными
+    private["_value", "_array", "_index", "_ok"];
 
-    // получаем аргументы и инициализируем переменные
-    _value = _this select 0;
-    _array = _this select 1;
-    _index = 0;
-    _ok = <em>false</em>;
+    // получаем аргументы и инициализируем переменные
+    _value = _this select 0;
+    _array = _this select 1;
+    _index = 0;
+    _ok = <em>false</em>;
 
-    // макро с осмысленными именами для удобного доступа
-    // к нужным элементам массива
+    // макро с осмысленными именами для удобного доступа
+    // к нужным элементам массива
     #define VALUE (( _array select _index ) select 0)
-    #define DATA  (( _array select _index ) select 1)
+    #define DATA  (( _array select _index ) select 1)
 
-    // сам алгоритм
-    while { !_ok &amp;&amp; _index &lt; count _array } do {
+    // сам алгоритм
+    while { !_ok &amp;&amp; _index &lt; count _array } do {
 
-        if ( VALUE == _value ) then {
-            _ok = <em>true</em>
-        } else {
-            if ( VALUE &gt; _value ) then {
-                _index = _index + _index + 1
-            } else {
-                _index = _index + _index + 2
-            };
-        };
-    };
+        if ( VALUE == _value ) then {
+            _ok = <em>true</em>
+        } else {
+            if ( VALUE &gt; _value ) then {
+                _index = _index + _index + 1
+            } else {
+                _index = _index + _index + 2
+            };
+        };
+    };
 
-    if ( _ok ) then { DATA } else { [] }
+    if ( _ok ) then { DATA } else { [] }
 }</pre>
 
 <p>Не будем вдаваться в то <span tooltip="Функа находит двоичным поиском ассоциированные со значением данные в специально сформированном массиве (пирамиде), это просто первый пришедший в голову популярный алгоритм">чем занимается эта функция</span>, пример приведен для общего представления синтаксиса.
@@ -590,33 +590,33 @@ call _subfunction</pre>
 <p>Передача и получение аргументов sqf функций полностью аналогичны тому как это делается в sqs.
 Например, функция принимающая скаляр может просто манипулировать предопределенной
 переменной _this, содержащей переданное значение:</p>
-<pre class="hl">_stupid_hint = {
-    _this = "Hint: " + _this;
-    hint _this
+<pre class="hl sqf">_stupid_hint = {
+    _this = "Hint: " + _this;
+    hint _this
 }</pre>
 
 <p>Вызов с передачей аргумента выглядит так:</p>
-<pre class="hl">"Stupid example" call _stupid_hint</pre>
+<pre class="hl sqf">"Stupid example" call _stupid_hint</pre>
 
 <p>Если передается несколько значений, то также, как и в случае с sqs используется массив:</p>
-<pre class="hl">_hint_two_strings = {
-    hint (
-            ( _this select 0 ) + "\n" +
-            ( _this select 1 )
-         )
+<pre class="hl sqf">_hint_two_strings = {
+    hint (
+            ( _this select 0 ) + "\n" +
+            ( _this select 1 )
+         )
 }</pre>
 
 <p>Вызов с передачей нескольких аргументов будет выглядеть так:</p>
-<pre class="hl">["Hello,", "Word!"] call _hint_two_strings</pre>
+<pre class="hl sqf">["Hello,", "Word!"] call _hint_two_strings</pre>
 
 <p>Для более удобной работы с аргументами, часто имеет смысл записать их в переменные:</p>
-<pre class="hl">_my_sqf_function = {
+<pre class="hl sqf">_my_sqf_function = {
 
-    private["_arg0", "_arg1", "_arg2"];
+    private["_arg0", "_arg1", "_arg2"];
 
-    _arg0 = _this select 0;
-    _arg1 = _this select 1;
-    _arg2 = _this select 2;
+    _arg0 = _this select 0;
+    _arg1 = _this select 1;
+    _arg2 = _this select 2;
 
 }</pre>
 
@@ -633,16 +633,16 @@ call _subfunction</pre>
 <p>Нужно также осветить один момент относительно автоматической переменной _this —
 эта переменная будет присутствовать лишь в том случае, когда вы передавали в функцию аргумент,
 поэтому будьте внимательны, переписывая её значение:</p>
-<pre class="hl">"origin value" call {
-    "anything" call { _this = "new value" };
-    hint _this // печатает "origin value"
+<pre class="hl sqf">"origin value" call {
+    "anything" call { _this = "new value" };
+    hint _this // печатает "origin value"
 }</pre>
 
 <p>Здесь все верно, вложенная функция переписывает собственный _this,
 но следующий пример показывает  возможную ошибку:</p>
-<pre class="hl">"origin value" call {
-    call { _this = "new value" };
-    hint _this // печатает "new value"
+<pre class="hl sqf">"origin value" call {
+    call { _this = "new value" };
+    hint _this // печатает "new value"
 }</pre>
 
 <p>Так как вложенная функция не получила аргумента, то для нее, соответственно,
@@ -654,31 +654,31 @@ call _subfunction</pre>
 отличает то, что они способны возвращать значение.
 Вспомним, что sqf функции в данном языке возвращают последнее вычисленное выражение,
 например такая функция возвращает количество гранатометчиков в переданной группе:</p>
-<pre class="hl">_count_grenadiers = {
-    {
-        "" != secondaryWeapon _x
-    } count units _this
+<pre class="hl sqf">_count_grenadiers = {
+    {
+        "" != secondaryWeapon _x
+    } count units _this
 }</pre>
 
 <p>Эта функция состоит из одного выражения, результат его вычисления и будет возвращен вызывающей стороне:</p>
-<pre class="hl">hint format ["%1", player call _count_grenadiers]</pre>
+<pre class="hl sqf">hint format ["%1", player call _count_grenadiers]</pre>
 
 <p>Заметьте, что в конце тела функции не надо ставить точку с запятой, иначе последним выражением
 будет считаться то, что идет после «;», т.е. ничего. В качестве иллюстрации, вызов</p>
-<pre class="hl text"><b>call {</b> 10 <b>}</b></pre>
+<pre class="hl sqf text">call { 10 }</pre>
 
 <p>вернёт число 10, в отличии от вызова</p>
-<pre class="hl text"><b>call {</b> 10; <b>}</b></pre>
+<pre class="hl sqf text">call { 10; }</pre>
 
 <p>который возвращает Nothing.
 Если функция заканчивается одной из веток ветвления «if then else»,
 то точка с запятой должна отсутствовать не только после ветвления, <span tooltip="Почему такое вообже возможно, что функция возвращает значение в данном примере мы узнаем из рассказа о «if then else»">но и в обеих ветках</span>:</p>
-<pre class="hl">_max = {
-    if ( _this select 0 &gt;= _this select 1 ) then {
-        _this select 0
-    } else {
-        _this select 1
-    }
+<pre class="hl sqf">_max = {
+    if ( _this select 0 &gt;= _this select 1 ) then {
+        _this select 0
+    } else {
+        _this select 1
+    }
 }</pre>
 
 <p><i>Примечание: в общем случае, точка с запятой не обязана стоять после каждого выражения —
@@ -687,20 +687,20 @@ call _subfunction</pre>
 
 <p>Очевидный момент, но все же отметим его: одиночно стоящая константа, переменная либо команда, также
 являются выражением и соответственно вычисляется:</p>
-<pre class="hl">// возвращает все оружие группы одним массивом:
+<pre class="hl sqf">// возвращает все оружие группы одним массивом:
 _get_group_weapons = {
-    private "_w";
-    _w = [];
-    {
-        _w = _w + weapons _this
-    } foreach ( units _this );
-    _w // &lt;- это выражение будет вычисленно и его результат возвращен
+    private "_w";
+    _w = [];
+    {
+        _w = _w + weapons _this
+    } foreach ( units _this );
+    _w // &lt;- это выражение будет вычисленно и его результат возвращен
 }</pre>
 
 <p>Естественно, что мы можем использовать sqf функции так же, как используем команды
 возвращающие значение — вызывая их непосредственно из выражений:</p>
-<pre class="hl">_small_arms = count ( ( player call _get_group_weapons ) - ["Binocular", "NVGoggles"] )
-               - ( player call _count_grenadiers );</pre>
+<pre class="hl sqf">_small_arms = count ( ( player call _get_group_weapons ) - ["Binocular", "NVGoggles"] )
+               - ( player call _count_grenadiers );</pre>
 
 <p>Теперь _small_arms содержит количество единиц стрелкового оружия отделения игрока.</p>
 <h5 id="toc18">Комментарии</h5>
@@ -709,16 +709,16 @@ _get_group_weapons = {
 как несложно было заметить, символом такого комментария является двойной слэш «//» —
 все, что идет после него до конца строки может быть произвольным текстом, и будет
 игнорироваться интерпретатором.</p>
-<pre class="hl">// Это строчный комментарий
-hint "подсказка" // перед комментарием может располагаться код </pre>
+<pre class="hl sqf">// Это строчный комментарий
+hint "подсказка" // перед комментарием может располагаться код</pre>
 Если ваш комментарий занимает несколько строк, или вы хотите
 временно отключить часть кода, то удобно воспользоваться многострочным комментарием —
 для этого заключите текст между открывающим «/*» и
 закрывающим «*/» символами, так как это сделано в примере:
-<pre class="hl">/*
-    Это
-    многострочный
-    комментарий
+<pre class="hl sqf">/*
+    Это
+    многострочный
+    комментарий
 */</pre>
 Надо отметить, что комментарии (как и макро) обеспечиваются работой команды preprocessFile,
 и справедливы только для файлов подключаемых этой командой.
@@ -728,22 +728,22 @@ hint "подсказка" // перед комментарием может ра
 помимо комментариев, <i>макроподстановку</i>.
 Макроподстановка — это механизм замены символического имени на произвольный текст.
 Макро определяется директивой препроцессора #define, создадим для примера макро MY_SOLDIERS:</p>
-<pre class="hl">#define MY_SOLDIERS (units player) </pre>
+<pre class="hl sqf">#define MY_SOLDIERS (units player)</pre>
 
 <p>теперь в файле обрабатываемом preprocessFile все вхождения имени MY_SOLDIERS будут заменены
 на (units player). Можно создавать многострочные макро используя символ
 переноса на следующую строку «\».</p>
 
 <p>Макро может принимать параметры:</p>
-<pre class="hl">#define SOLDIERS(G) (units G) </pre>
+<pre class="hl sqf">#define SOLDIERS(G) (units G)</pre>
 
 <p>Теперь можно использовать «SOLDIERS(player)» для получения массива юнитов группы игрока.</p>
 
 <p>Макро особенно удобно использовать для доступа к элементам массивов.
 Допустим мы не хотим создавать лишние переменные для доступа к аргументам функции:</p>
-<pre class="hl">#define ARG0 (_this select 0)
+<pre class="hl sqf">#define ARG0 (_this select 0)
 #define ARG1 (_this select 1)
-#define ARG2 (_this select 2) </pre>
+#define ARG2 (_this select 2)</pre>
 
 <p>Здесь, как видим, используются «бессмысленные» имена макро, на деле они,
 конечно, будут отражать предназначение аргументов.</p>
@@ -756,7 +756,7 @@ hint "подсказка" // перед комментарием может ра
 где происходит обращение к этим массивам.
 Конечно, макро может очень помочь в этой ситуации, ради примера посмотрим как могли бы
 выглядеть макроопределения для доступа к полям гипотетической структуры хранящей данные о юнитах:</p>
-<pre class="hl">// макро чтения
+<pre class="hl sqf">// макро чтения
 #define mGetVehicleType(s)    ((s) select 0)
 #define mGetPosition(s)       ((s) select 1)
 #define mGetIdentityHandle(s) ((s) select 2)
@@ -772,7 +772,7 @@ hint "подсказка" // перед комментарием может ра
 #define mSetStatusHandle(s,v)   ((s) set[3,v])
 #define mSetAzimut(s,v)         ((s) set[4,v])
 #define mSetSkill(s,v)          ((s) set[5,v])
-#define mSetRank(s,v)           ((s) set[6,v]) </pre>
+#define mSetRank(s,v)           ((s) set[6,v])</pre>
 
 <p>Областью действия макро является текст sqf скрипта, от точки определения макро, до конца файла.</p>
 
@@ -791,15 +791,15 @@ hint "подсказка" // перед комментарием может ра
 
 <p>Этот составной оператор позволяет выполнить тот или иной код в зависимости от условия.
 Синтаксис оператора:</p>
-<pre class="hl">if ( «condition» ) then {
-    «then_expression»
+<pre class="hl sqf">if ( «condition» ) then {
+    «then_expression»
 } else {
-    «else_expression»
+    «else_expression»
 }</pre>
 
 <p>Часть «else» необязательна, и если она не нужна, то все сокращается до следующего:</p>
-<pre class="hl">if ( «condition» ) then {
-    «then_expression»
+<pre class="hl sqf">if ( «condition» ) then {
+    «then_expression»
 }</pre>
 
 <p>Здесь:</p>
@@ -874,7 +874,7 @@ hint "подсказка" // перед комментарием может ра
 
 <p>Замечательной особенностью оператора «if then else» рассматриваемого языка, является то, что он может возвращать значение.
 Например:</p>
-<pre class="hl">_n = <em>true</em>;
+<pre class="hl sqf">_n = <em>true</em>;
 hint ( if ( _n ) then { "1" } else { "2" } )</pre>
 
 <p>щелкнет хинтом "1", или хинтом "2", если изменить _n на false.</p>
@@ -886,30 +886,30 @@ hint ( if ( _n ) then { "1" } else { "2" } )</pre>
 при этом значение, возвращаемое командой if станет левым операндом then, а массив,
 возвращаемый командой else — правым операндом.
 Расставим, для наглядности, скобки:</p>
-<pre class="hl">( if ( _n ) ) then ( { "1" } else { "2" } )</pre>
+<pre class="hl sqf">( if ( _n ) ) then ( { "1" } else { "2" } )</pre>
 
 <p>Непривычно, но такая запись совершенно корректна для данного языка.</p>
 
 <p>Итак, мы видим, что команда else фактически возвращает массив с двумя строковыми величинами,
 а then, в зависимости от состояния своего левого операнда (он имеет специальный тип "IF") выполняет или нулевой,
 или первый элемент этого массива. Это легко проверяется такими примерами:</p>
-<pre class="hl">_n = <em>true</em>;
+<pre class="hl sqf">_n = <em>true</em>;
 if ( _n )then[{ hint "1" }, { hint "2" }]</pre>
-<pre class="hl">hint ( {"Alpha"} else {"Beta"} select 0 )</pre>
-<pre class="hl">hint ( {"Alpha"} else {"Beta"} select 1 )</pre>
+<pre class="hl sqf">hint ( {"Alpha"} else {"Beta"} select 0 )</pre>
+<pre class="hl sqf">hint ( {"Alpha"} else {"Beta"} select 1 )</pre>
 
 <p>Здесь же уместно вспомнить, что команда select имея правым операндом булево значение возвращает
 <del>или первый, или нулевой элемент</del>один из двух элементов своего левого операнда-массива:</p>
-<pre class="hl">_n = <em>true</em>;
+<pre class="hl sqf">_n = <em>true</em>;
 hint ( {1} else {2} select _n )</pre>
 
 <p>Вот так забавно разработчики реализовали, вполне привычные, на первый взгляд, вещи.</p>
-<pre class="hl">_A = 1;
+<pre class="hl sqf">_A = 1;
 _B = 2;
 _cond = if ( _A &lt; _B );
 _case = [
-    { hint "_A &lt; _B" },
-    { hint "_B &lt; _A" }
+    { hint "_A &lt; _B" },
+    { hint "_B &lt; _A" }
 ];
 _cond then _case</pre>
 
@@ -920,8 +920,8 @@ _cond then _case</pre>
 
 <p>Составной оператор «<tt>while do</tt>» реализует цикл, тело
 которого повторяется до тех пор пока условие в части «while» истинно:</p>
-<pre class="hl">while { «condition» } do {
-    «loop_body»
+<pre class="hl sqf">while { «condition» } do {
+    «loop_body»
 }</pre>
 
 <p>Тело цикла <i>«loop_body»</i> будет выполняться пока истинно условие <i>«condition»</i>.
@@ -929,74 +929,74 @@ _cond then _case</pre>
 круглые (как условие в «if») скобки, будьте внимательны.</p>
 
 <p>Например, запишем цикл со счетчиком:</p>
-<pre class="hl">private "_counter";
+<pre class="hl sqf">private "_counter";
 
 _counter = 0;
 
 while { _counter != 20 } do {
 
-    // ваши действия
-    _counter = _counter + 1
+    // ваши действия
+    _counter = _counter + 1
 
 }</pre>
 
 <p>Так организуется прямой обход массива:</p>
-<pre class="hl">private "_index";
+<pre class="hl sqf">private "_index";
 
 _index = 0;
 
 while { _index &lt; count _array } do {
 
-    // некоторые действия над текущим элементом
-    // массива (_array select _index)
+    // некоторые действия над текущим элементом
+    // массива (_array select _index)
 
-    _index = _index + 1
+    _index = _index + 1
 
 }</pre>
 
 <p>А так обратный:</p>
-<pre class="hl">private "_index";
+<pre class="hl sqf">private "_index";
 
 _index = count _array;
 
 while { _index &gt; 0 } do {
 
-    _index = _index - 1
+    _index = _index - 1
 
-    // некоторые действия над текущим элементом
-    // массива (_array select _index)
+    // некоторые действия над текущим элементом
+    // массива (_array select _index)
 
 }</pre>
 
 <p>Цикл типа «do while», как правило, используются реже чем «while do», но если вдруг вам он понадобился,
 то можно вынести проверку в конец таким образом:</p>
-<pre class="hl">private "_condition";
+<pre class="hl sqf">private "_condition";
 
 _condition = <em>true</em>;
 
 while { _condition } do {
-    «тело цикла»
-    _condition = «настоящее условие»
+    «тело цикла»
+    _condition = «настоящее условие»
 }</pre>
 
 <p>Язык не поддерживает операторы break и continue, вы не можете выйти в любой момент из цикла
 или начать новую итерацию, поэтому используйте
 возможности <nobr>«if .. then .. else»</nobr> совместно с дополнительной
 переменной — флагом «break»:</p>
-<pre class="hl">break = <em>false</em>;
+<pre class="hl sqf">break = <em>false</em>;
 while { _real_condition_ &amp;&amp; !break } do {
 
-    // если необходимо прервать цикл
-    if ( условие ){
-        break = <em>true</em>
-    } else {
-        // продолжение цикла
+    // если необходимо прервать цикл
+    if ( условие ){
+        break = <em>true</em>
+    } else {
+        // продолжение цикла
 
-        // если необходимо перейти в начало цикла
-        if ( ! условие ){
-            // продолжение цикла
-        }
-    }
+        // если необходимо перейти в начало цикла
+        if ( ! условие ){
+            // продолжение цикла
+        }
+    }
 }</pre>
 
 <p>Цикл while не может выполняться бесконечно, и если количество итераций превысит 10000, то интерпретатор
@@ -1006,9 +1006,9 @@ while { _real_condition_ &amp;&amp; !break } do {
 <p>Часто встречающейся задачей является выполнение некоторых действий над всеми элементами массива.
 Удобным решением может быть цикл foreach, например, предыдущий пример обхода массива с «while»
 мог быть записан так:</p>
-<pre class="hl">{
-    // некоторые действия над текущим элементом
-    // массива (автоматическая переменная _x)
+<pre class="hl sqf">{
+    // некоторые действия над текущим элементом
+    // массива (автоматическая переменная _x)
 } foreach _array</pre>
 
 <p>Как видим код может быть короче и лаконичнее,
@@ -1017,8 +1017,8 @@ while { _real_condition_ &amp;&amp; !break } do {
 на каждой итерации цикла она автоматически принимает значение текущего элемента массива.</p>
 
 <p>Следующий пример восстановит здоровье всех членов отряда игрока:</p>
-<pre class="hl">{
-    _x setDammage 0
+<pre class="hl sqf">{
+    _x setDammage 0
 } foreach units player</pre>
 
 <p>Интересной особенностью foreach является то, что мы можем в ходе цикла менять сам
@@ -1038,22 +1038,22 @@ while { _real_condition_ &amp;&amp; !break } do {
 для ключей удовлетворяющим следующим условиям:
 они должны быть целыми числами, подряд следующими друг за другом без пропусков (как 4, 5, 6, 7, 8, 9 и т.д.),
 тогда мы используем массив содержащий анонимные функции, а ключ будем использовать как индекс этого массива:</p>
-<pre class="hl">// привести ключ к нужному диапазону
+<pre class="hl sqf">// привести ключ к нужному диапазону
 _key = _this - 4;
 
 // таблица анонимных функций
 _switch = [
-    { hint "4" },
-    { hint "5" },
-    { hint "6" },
-    { hint "7" },
-    { hint "8" },
-    { hint "9" }
+    { hint "4" },
+    { hint "5" },
+    { hint "6" },
+    { hint "7" },
+    { hint "8" },
+    { hint "9" }
 ];
 
-// если индекс укладывается в границы массива — вызвать нужную функцию
+// если индекс укладывается в границы массива — вызвать нужную функцию
 if ( _key &gt;= 0 &amp;&amp; _key &lt; count _switch ) then {
-    call (_switch select _key)
+    call (_switch select _key)
 }</pre>
 
 <p>Это конечно здорово, но как быть если наши ключи строковые? Здесь тоже есть варианты.</p>
@@ -1061,39 +1061,39 @@ if ( _key &gt;= 0 &amp;&amp; _key &lt; count _switch ) then {
 <p>Если строковое значение по которому надо сделать выбор не содержит пробелов и в целом
 удовлетворяет требованиям к именам (см. главу <a href="ofp-scripting.variable.html#variableNames">Переменные</a>),
 то можно использовать ключ как имя функции:</p>
-<pre class="hl">private "_switches";
+<pre class="hl sqf">private "_switches";
 
 // имена функций для наших ключей
 _switches = [
-    "_key_MY_VALUE1",
-    "_key_MY_VALUE2",
-    "_key_MY_VALUE3"
+    "_key_MY_VALUE1",
+    "_key_MY_VALUE2",
+    "_key_MY_VALUE3"
 ];
 
 // если для ключа имеется действие (в _this ожидается ключ)
 if ( "_key_" + _this in _switches ) then {
 
-    // объявить имена функций принадлежащими текущему контексту блока then
-    private _switches;
+    // объявить имена функций принадлежащими текущему контексту блока then
+    private _switches;
 
-    // сами действия
-    _key_MY_VALUE1 = { hint "MY VALUE 1" };
-    _key_MY_VALUE2 = { hint "MY VALUE 2" };
-    _key_MY_VALUE3 = { hint "MY VALUE 3" };
+    // сами действия
+    _key_MY_VALUE1 = { hint "MY VALUE 1" };
+    _key_MY_VALUE2 = { hint "MY VALUE 2" };
+    _key_MY_VALUE3 = { hint "MY VALUE 3" };
 
-    // косвенный вызов
-    call (call (" _key_" + _this));
+    // косвенный вызов
+    call (call (" _key_" + _this));
 
 } else {
-    // если для ключа не нашлось действия
-    hint ( "not found: """ + _this + """")
+    // если для ключа не нашлось действия
+    hint ( "not found: """ + _this + """")
 }</pre>
 
 <p>Можно запустить этот пример так:<br> « <tt>"MY_VALUE2" call preprocessFile "этот пример помещенный в файл.sqf"</tt> »</p>
 
 <p>В плане оптимизации можно убрать проверку « "_key_" + _this in _switches ».
 В этом варианте мы лишаемся действия по умолчанию (если нужный ключ не нашелся), в остальном все остается так же:</p>
-<pre class="hl">private "_key_name";
+<pre class="hl sqf">private "_key_name";
 
 _key_name = "_key_" + _this;
 
@@ -1103,9 +1103,9 @@ private _key_name;
 
 // имена функций
 private [
-    "_key_MY_VALUE1",
-    "_key_MY_VALUE2",
-    "_key_MY_VALUE3"
+    "_key_MY_VALUE1",
+    "_key_MY_VALUE2",
+    "_key_MY_VALUE3"
 ];
 
 // сами действия
@@ -1118,43 +1118,43 @@ call (call _key_name);</pre>
 
 <p>Последний, самый сложный вариант — выбор по ключу являющимся свободной строкой.
 В этом случае никакие особенности языка нам не помощники, и придется реализовывать поиск в массиве пар.</p>
-<pre class="hl">private["_pairs", "_findValueInPairs"];
+<pre class="hl sqf">private["_pairs", "_findValueInPairs"];
 
 // массив пар: ключ/функция
 _pairs = [
-    "- key 1 -", { hint "Key 1" },
-    "- key 2 -", { hint "Key 2" },
-    "- key 3 -", { hint "Key 3" }
+    "- key 1 -", { hint "Key 1" },
+    "- key 2 -", { hint "Key 2" },
+    "- key 3 -", { hint "Key 3" }
 ];
 
 // ищет прямым перебором ключ и возвращает сопоставленное ему значение
 _findValueInPairs = {
 
-    private["_a", "_k", "_i"];
+    private["_a", "_k", "_i"];
 
-    _a = _this select 0; // массив пар
-    _k = _this select 1; // искомый ключ
-    _i = 0;
+    _a = _this select 0; // массив пар
+    _k = _this select 1; // искомый ключ
+    _i = 0;
 
-    /*
-        пока (
-            (не вышли за границы массива) и
-            (не нашли искомое значение)
-        ) —&gt; продолжать поиск
-    */
-    while {
-        if ( _i &lt; count _a ) then { _a select _i != _k } else { <em>false</em> }
-    } do {
-        _i = _i + 2
-    };
+    /*
+        пока (
+            (не вышли за границы массива) и
+            (не нашли искомое значение)
+        ) —&gt; продолжать поиск
+    */
+    while {
+        if ( _i &lt; count _a ) then { _a select _i != _k } else { <em>false</em> }
+    } do {
+        _i = _i + 2
+    };
 
-    /*
-        если в процессе поиска мы не вышли за границы массива
-            ключ был найден, вернуть ассоциированную с ним функцию
-        иначе
-            вернуть анонимную функцию выводящую сообщение о неудаче
-    */
-    if ( _i &lt; count _a )then[{_a select (_i + 1)}, {{hint "not found"}}]
+    /*
+        если в процессе поиска мы не вышли за границы массива
+            ключ был найден, вернуть ассоциированную с ним функцию
+        иначе
+            вернуть анонимную функцию выводящую сообщение о неудаче
+    */
+    if ( _i &lt; count _a )then[{_a select (_i + 1)}, {{hint "not found"}}]
 
 };
 
@@ -1165,14 +1165,14 @@ call ([_pairs, _this] call _findValueInPairs);</pre>
 подход используя древовидное иерархическое хранение данных.</p>
 
 <p>Обратите внимание на то как написано условие для while — вместо более очевидного:</p>
-<pre class="hl text">_i <b>&lt;</b> <u>count</u> _a <b>&amp;&amp;</b> _a <b>select</b> _i <b>!=</b> _k</pre>
+<pre class="hl sqf text">_i &lt; count _a &amp;&amp; _a select _i != _k</pre>
 
 <p>используется возвращающий значение «if then else», объяснение здесь простое —
 скрипт-интерпретатор в игре, в отличии от подавляющего большинства языков, всегда вычисляет все условие
 полностью и мы можем вылететь за границы массива, порадовав игрока сообщением об ошибке (<a href="ofp-scripting.variable.html#stupidSQF&amp;SQS&amp;BIS&amp;ETC">комментарий</a>)</p>
 
 <p>Кстати, наше условие можно упростить, убрав часть else:</p>
-<pre class="hl text"><b>if (</b> _i <b>&lt;</b> <u>count</u> _a <b>) then {</b> _a <b>select</b> _i <b>!=</b> _k <b>}</b></pre>
+<pre class="hl sqf text">if ( _i &lt; count _a ) then { _a select _i != _k }</pre>
 
 <p>Поясним: если условие « <tt>_i &lt; count _a</tt> » не будет выполнено,
 то команда «then» вернёт неопределенную величину, что прекратит работу цикла.</p>
@@ -1191,14 +1191,14 @@ call ([_pairs, _this] call _findValueInPairs);</pre>
 <p>Язык «некоторым образом» поддерживает рекурсию. «Некоторым образом» —
 потому, что глубина рекурсии очень невелика, и если ваша функция «нырнет» глубже положенного,
 то игра, банально, вылетит. Вот пример простой тестовой рекурсивной функции:</p>
-<pre class="hl">_str = "";
+<pre class="hl sqf">_str = "";
 
 _recurse_test = {
-    if ( _this &lt; 29 ) then {
-        _str = _str + format ["[%1]-&gt; ", _this];
-        _this+1 call _recurse_test;
-        _str = _str + format [" &lt;-[%1]", _this];
-    }
+    if ( _this &lt; 29 ) then {
+        _str = _str + format ["[%1]-&gt; ", _this];
+        _this+1 call _recurse_test;
+        _str = _str + format [" &lt;-[%1]", _this];
+    }
 };
 
 0 call _recurse_test;
@@ -1211,29 +1211,29 @@ hint _str;</pre>
 
 <p>Конечно, это рисковано, и лучше обходится совсем без рекурсии, но иногда это очень помогает,
 например при написании прототипа скрипта, как в примере обхода дерева:</p>
-<pre class="hl">_plain = [];
+<pre class="hl sqf">_plain = [];
 _push = { _plain set [count _plain, _this] };
 
 // разворачивает дерево
 _unwrapTree = {
-    if ( _this in [_this] ) then { // если не массив - вывести элемент в поток
-        _this call _push
-    } else {                      // если массив -
-        "&lt;array&gt;" call _push;                   // обозначить это дело
-        { _x call _unwrapTree } foreach _this;  // и повторить процедуру для каждого его элемента
-        "&lt;/array&gt;" call _push;
-    };
+    if ( _this in [_this] ) then { // если не массив - вывести элемент в поток
+        _this call _push
+    } else {                      // если массив -
+        "&lt;array&gt;" call _push;                   // обозначить это дело
+        { _x call _unwrapTree } foreach _this;  // и повторить процедуру для каждого его элемента
+        "&lt;/array&gt;" call _push;
+    };
 };
 
 [
-    1, 2, "some string",
-    ["A","B","C"],
-    magazines player,
-    [
-        ["r1c1","r1c2","r1c3","r1c4","r1c5"],
-        ["r2c1","r2c2","r2c3","r2c4","r2c5"],
-        ["r3c1","r3c2","r3c3","r3c4","r3c5"]
-    ]
+    1, 2, "some string",
+    ["A","B","C"],
+    magazines player,
+    [
+        ["r1c1","r1c2","r1c3","r1c4","r1c5"],
+        ["r2c1","r2c2","r2c3","r2c4","r2c5"],
+        ["r3c1","r3c2","r3c3","r3c4","r3c5"]
+    ]
 
 ] call _unwrapTree;
 

@@ -8,7 +8,8 @@ body {
   padding: 1em 0 4em 0;
   text-align: left;
   width: 47em;
-  background: #fff;
+  background: #f8f8f8;
+  text-shadow: 0 0 0 #888;
 }
 
 p {
@@ -159,7 +160,7 @@ pre.text {
 pre.text i { font: italic 100%/130% Verdana, sans-serif }
 pre.text s { font: normal 100%/130% Verdana, sans-serif }
 
-pre.code s { color: #8A8 }
+pre.code s { color: #B55 }
 pre.code u { color: #A00 }
 pre.code i { color: #00A }
 pre.code b { font-weight: 400; font-style: italic; color: #050 }

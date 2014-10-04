@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿﻿<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -52,7 +52,7 @@
 
 <h4 id="toc03">Совсем ужасный код</h4>
 
-<pre class="hl">; увеличивает число на единицу
+<pre class="hl sqf">; увеличивает число на единицу
 
 ? a == 0 : b = 1; goto "end"
 ? a == 1 : b = 2; goto "end"
@@ -69,7 +69,7 @@
 
 <p>Узнаете? На таком коде бывает даже ставят своё имя!</p>
 
-<pre class="hl">; Скрипт увеличения числа на единицу. DenVdmj (c) 2006
+<pre class="hl sqf">; Скрипт увеличения числа на единицу. DenVdmj (c) 2006
 ; Если Вам понравилася эта ИДЕЯ вы можете использовать её в своих скриптах,
 ; только не забудте указать МЕНЯ как АВТОРА этой ИДЕИ! Я думаю Вы поняли,
 ; что все ОЧЕНЬ ПРОСТО, точно также можно увеличивать на ДВОЙКУ и на ТРОЙКУ
@@ -91,7 +91,7 @@
 <p>Вам смешно? Мне — нисколько, ведь люди действительно с удовольствием пользуются.
 Я обнаглею, и, невзирая на объем такого кода, распишу его здесь полностью:</p>
 
-<pre class="hl">_unit = _this select 0
+<pre class="hl sqf">_unit = _this select 0
 _num = random(10)
 ?_num &gt;= 9: _unit setObjectTexture [0, "\PathTo\Sign9.paa"], goto "num2"
 ?_num &gt;= 8: _unit setObjectTexture [0, "\PathTo\Sign8.paa"], goto "num2"
@@ -141,26 +141,26 @@ exit</pre>
 А ведь все решение для абсолютно любых входных параметров (сам номер, имена текстур и секции) умещается
 в несколько строк кода. И это делается один раз на всю жизнь и на любые проекты.</p>
 
-<pre class="hl">_object =
+<pre class="hl sqf">_object =
 _number =
 _texturePathMask = "\Path\To\Signatures\Sign%1colorRed.paa";
 _sections = [5,4,3,2,1,0]; // секции перечисленные от младшего
-                           // разряда к старшему, т.е. слева направо
+                           // разряда к старшему, т.е. слева направо
 {
-    // отбросить дробную часть
-    _number = _number - _number % 1;
-    // установить текстуру c цифрой, остаток деления _number на 10
-    // вернёт младший десятичный разряд числа
-    _object setObjectTexture [_x, format [_texturePathMask, _number % 10]];
-    // сдвинуть _number на один десятичный разряд вправо
-    _number = _number / 10
+    // отбросить дробную часть
+    _number = _number - _number % 1;
+    // установить текстуру c цифрой, остаток деления _number на 10
+    // вернёт младший десятичный разряд числа
+    _object setObjectTexture [_x, format [_texturePathMask, _number % 10]];
+    // сдвинуть _number на один десятичный разряд вправо
+    _number = _number / 10
 } foreach _sections;</pre>
 
 И еще раз для самых занятых, в виде скрипта принимающего параметры:
-<pre class="hl">;// args: [объект, номер, маска пути/имени файла сигнатуры, массив секций]
+<pre class="hl sqf">;// args: [объект, номер, маска пути/имени файла сигнатуры, массив секций]
 _num = _this select 1;
 {
-    _num = _num - _num % 1;
+    _num = _num - _num % 1;
     _this select 0 setObjectTexture [_x, format [_this select 2, _num % 10]];
     _num = _num / 10
 } foreach (_this select 3)</pre>
@@ -168,7 +168,7 @@ _num = _this select 1;
 
 <p>Вот еще один совершенно реальный образчик стиля которым написано немало скриптов:</p>
 
-<pre class="hl">#loop
+<pre class="hl sqf">#loop
 _dam=getdammage _unit
 ?(_dam==0) : goto "start"
 ?(_dam==1) : goto "end"
@@ -207,7 +207,7 @@ goto "loop"</pre>
 
 <p>Никогда не делайте так:</p>
 
-<pre class="hl">_car addWeaponCargo ["SomeGun",1];
+<pre class="hl sqf">_car addWeaponCargo ["SomeGun",1];
 _car addWeaponCargo ["OtherGun",1];
 _car addWeaponCargo ["SuperGun",1];
 _car addWeaponCargo ["SuperPuperGun",1];
@@ -215,31 +215,31 @@ _car addWeaponCargo ["SuperPuperGun",1];
 _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 <p>Выносите данные о стволах в файлы с данными:</p>
 
-<pre class="hl">[
-   "SomeGun",
-   "OtherGun",
-   "SuperGun",
-   "SuperPuperGun",
-   "SuperPuperMegaGun"
+<pre class="hl sqf">[
+   "SomeGun",
+   "OtherGun",
+   "SuperGun",
+   "SuperPuperGun",
+   "SuperPuperMegaGun"
 ]</pre>
 <p>И используйте</p>
 
-<pre class="hl">{
-    _car addWeaponCargo [_x, 1]
+<pre class="hl sqf">{
+    _car addWeaponCargo [_x, 1]
 } foreach call preprocessFile "resources.sqf"</pre>
 
 <p>Вы легко можете улучшить скрипт, храня магазины и прочие относящиеся к оружию данные вместе:</p>
 
-<pre class="hl">[
-   ["SomeGun", "SomeGunMag"],
-   ["OtherGun", "OtherGunMag"],
-   ["SuperGun", "SuperGunMag"],
-   ["SuperPuperGun", "SuperPuperGunMag"],
-   ["SuperPuperMegaGun", "SuperPuperMegaGunMag"]
+<pre class="hl sqf">[
+   ["SomeGun", "SomeGunMag"],
+   ["OtherGun", "OtherGunMag"],
+   ["SuperGun", "SuperGunMag"],
+   ["SuperPuperGun", "SuperPuperGunMag"],
+   ["SuperPuperMegaGun", "SuperPuperMegaGunMag"]
 ]</pre>
-<pre class="hl">{
-    _car addWeaponCargo [_x select 0, 1];
-    _car addMagazineCargo [_x select 1, 4]
+<pre class="hl sqf">{
+    _car addWeaponCargo [_x select 0, 1];
+    _car addMagazineCargo [_x select 1, 4]
 
 } foreach call preprocessFile "resources.sqf"</pre>
 <p>Используйте такой подход даже если ваш скрипт очень простой; если Вы не хотите использовать
@@ -256,7 +256,7 @@ _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 изменив нечто в одном месте, но забыв внести изменения в другом, Вы получите неоднозачность,
 и трудно обнаруживаемые глюки.</p>
 
-<h4 id="toc09">Храните данные связанные по смыслу в одном месте</h4>
+<h4 id="toc09">Храните данные связанные по смыслу в одном месте</h4>
 <p>Старайтесь выделять сущности, так например автомат — сущность,
 а его название, вес, цвет, вкус, запах, совместимые с ним прицелы, магазины которые он
 использует — его аттрибуты.</p>
@@ -268,14 +268,14 @@ _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 
 <p>Представте себе табличку:</p>
 
-<pre class="hl">_weapons =
+<pre class="hl sqf">_weapons =
 //     gun            magazine       optic   silencer
 [
-     ["ICP_val",     "ICP_valmag",   "",     "integrated"],
-     ["ICP_valpso",  "ICP_valmag",   "pso",  "integrated"],
-     ["ICP_vss",     "ICP_vssmag",   "pso",  "integrated"],
-     ["ICP_ak74",    "ICP_ak74mag",  "",     ""          ],
-     ["ICP_ak74mo",  "ICP_ak74mag",  "pso",  ""          ]
+     ["ICP_val",     "ICP_valmag",   "",     "integrated"],
+     ["ICP_valpso",  "ICP_valmag",   "pso",  "integrated"],
+     ["ICP_vss",     "ICP_vssmag",   "pso",  "integrated"],
+     ["ICP_ak74",    "ICP_ak74mag",  "",     ""          ],
+     ["ICP_ak74mo",  "ICP_ak74mag",  "pso",  ""          ]
 ]</pre>
 <p>Давайте напишем пару-тройку полезных функций для работы с такой табличкой.
 В подобных табличках лишь один столбец содержит гарантированно уникальные значения,
@@ -283,95 +283,91 @@ _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 Значения такого столбца можно назвать ключами, в нашем случае это столбец с названиями стволов, пусть
 следующая функция будет возвращать нам ряд по ключу (названию ствола):</p>
 
-<pre class="hl">_getByKey = { // args: table, key value
-    private ["_tbl", "_key", "_i"];
-    _tbl = _this select 0;
-    _key = _this select 2;
-    _i = 0;
-    while { _key != (_tbl select _i) select 0 } do { _i = _i + 1 };
-    if ( _i &lt; count _tbl ) then { _tbl select _i } else { [] }
+<pre class="hl sqf">_getByKey = { // args: table, key value
+    private ["_tbl", "_key", "_i"];
+    _tbl = _this select 0;
+    _key = _this select 2;
+    _i = 0;
+    while { _key != (_tbl select _i) select 0 } do { _i = _i + 1 };
+    if ( _i &lt; count _tbl ) then { _tbl select _i } else { [] }
 }</pre>
 <p>Назначение такой функции весьма понятно — вызов:</p>
 
-<pre class="hl output"><b>([</b>_weapons<b>,</b> <i>"ICP_vss"</i><b>] call</b> _getByKey<b>) select</b> 1</pre>
+<pre class="hl sqf output">([_weapons, "ICP_vss"] call _getByKey) select 1</pre>
 <p>вернёт название магазина для винтореза, а вызов</p>
 
-<pre class="hl output"><b>([</b>_weapons<b>,</b> <i>"ICP_vss"</i><b>] call</b> _getByKey<b>) select</b> 3</pre>
+<pre class="hl sqf output">([_weapons, "ICP_vss"] call _getByKey) select 3</pre>
 <p>название его глушителя.</p>
 
 <p>Еще одна важная операция — это получение всех рядов по совпавшим значениям в определенных столбцах,
 это поможет нам в ситуации когда мы захотим получить все стволы которые используют определенный магазин или оптику:</p>
 
-<pre class="hl">_selectByColumn = { // args: table, column, value
-    private ["_tbl", "_col", "_val", "_sel"];
-    _tbl = _this select 0;
-    _col = _this select 1;
-    _val = _this select 2;
-    _sel = [];
-    {
-        if ( _x select _col == _val ) then { _sel set [count _sel, _x] }
-    } foreach _tbl;
-    _sel // return selection
+<pre class="hl sqf">_selectByColumn = { // args: table, column, value
+    private ["_tbl", "_col", "_val", "_sel"];
+    _tbl = _this select 0;
+    _col = _this select 1;
+    _val = _this select 2;
+    _sel = [];
+    {
+        if ( _x select _col == _val ) then { _sel set [count _sel, _x] }
+    } foreach _tbl;
+    _sel // return selection
 }</pre>
 <p>Ок, теперь вызов:</p>
 
-<pre class="hl output"><b>[</b>_weapons<b>,</b> 1<b>,</b> <i>"ICP_ak74mag"</i><b>] call</b> _selectByColumn</pre>
+<pre class="hl sqf output">[_weapons, 1, "ICP_ak74mag"] call _selectByColumn</pre>
 <p>возвращает массив:</p>
 
-<pre class="hl output"><b>[
-     [</b><i>"ICP_ak74"</i><b>,</b>   <i>"ICP_ak74mag"</i><b>,</b> <i>""</i><b>,</b>    <i>""</i><b>],
-     [</b><i>"ICP_ak74mo"</i><b>,</b> <i>"ICP_ak74mag"</i><b>,</b> <i>"pso"</i><b>,</b> <i>""</i><b>]
-]</b>
-</pre>
+<pre class="hl sqf output">[
+     ["ICP_ak74",   "ICP_ak74mag", "",    ""],
+     ["ICP_ak74mo", "ICP_ak74mag", "pso", ""]
+]</pre>
 <p>а вызов:</p>
 
-<pre class="hl output"><b>[</b>_weapons<b>,</b> 3<b>,</b> <i>"integrated"</i><b>] call</b> _selectByColumn</pre>
+<pre class="hl sqf output">[_weapons, 3, "integrated"] call _selectByColumn</pre>
 <p>массив:</p>
 
-<pre class="hl output"><b>[
-     [</b><i>"ICP_val"</i><b>,</b>    <i>"ICP_valmag"</i><b>,</b> <i>""</i><b>,</b>    <i>"integrated"</i><b>],
-     [</b><i>"ICP_valpso"</i><b>,</b> <i>"ICP_valmag"</i><b>,</b> <i>"pso"</i><b>,</b> <i>"integrated"</i><b>],
-     [</b><i>"ICP_vss"</i><b>,</b>    <i>"ICP_vssmag"</i><b>,</b> <i>"pso"</i><b>,</b> <i>"integrated"</i><b>],
-]</b>
-</pre>
+<pre class="hl sqf output">[
+     ["ICP_val",    "ICP_valmag", "",    "integrated"],
+     ["ICP_valpso", "ICP_valmag", "pso", "integrated"],
+     ["ICP_vss",    "ICP_vssmag", "pso", "integrated"],
+]</pre>
 <p>Аналогично можно найти все шумные стволы:</p>
 
-<pre class="hl output"><b>[</b>_weapons<b>,</b> 3<b>,</b> <i>""</i><b>] call</b> _selectByColumn</pre>
+<pre class="hl sqf output">[_weapons, 3, ""] call _selectByColumn</pre>
 <p>все стволы с оптикой ПСО:</p>
 
-<pre class="hl output"><b>[</b>_weapons<b>,</b> 2<b>,</b> <i>"pso"</i><b>] call</b> _selectByColumn</pre>
+<pre class="hl sqf output">[_weapons, 2, "pso"] call _selectByColumn</pre>
 <p>или без оптического прицела:</p>
 
-<pre class="hl output"><b>[</b>_weapons<b>,</b> 2<b>,</b> <i>""</i><b>] call</b> _selectByColumn</pre>
+<pre class="hl sqf output">[_weapons, 2, ""] call _selectByColumn</pre>
 <p>Вы можете существенно расширить возможности _selectByColumn если измените её так, чтобы
 вместо простого значения она принимала калбэк функцию определяющую подходит нам этот ряд или нет.
 Итак создадим еще одну функцию:</p>
 
-<pre class="hl">_selectByCondition = { // args: table, condition
-    private "_sel"; _sel = [];
-    {
-        if ( _x call (_this select 1) ) then { _sel set [count _sel, _x] }
-    } foreach (_this select 0);
-    _sel // return selection
+<pre class="hl sqf">_selectByCondition = { // args: table, condition
+    private "_sel"; _sel = [];
+    {
+        if ( _x call (_this select 1) ) then { _sel set [count _sel, _x] }
+    } foreach (_this select 0);
+    _sel // return selection
 };</pre>
 <p>Эта функция совсем небольшая, так как всю проверку мы вытащили наружу, и казалось бы,
 что можно обойтись совсем без этой функции, но все же с ней запрос выглядит осмысленней:</p>
 
-<pre class="hl output"><b>[</b>
-    _weapons<b>,
-    {
-        _this select</b> 2 <b>==</b> <i>"pso"</i> <b>&amp;&amp;
-        _this select</b> 3 <b>==</b> <i>"integrated"</i>
-    <b>}
-] call</b> _selectByCondition
-</pre>
+<pre class="hl sqf output">[
+    _weapons,
+    {
+        _this select 2 == "pso" &amp;&amp;
+        _this select 3 == "integrated"
+    }
+] call _selectByCondition</pre>
 <p>этот вызов вернёт такой массив:</p>
 
-<pre class="hl output"><b>[
-    [</b><i>"ICP_valpso"</i><b>,</b> <i>"ICP_valmag"</i><b>,</b> <i>"pso"</i><b>,</b> <i>"integrated"</i><b>],
-    [</b><i>"ICP_vss"</i><b>,</b>    <i>"ICP_vssmag"</i><b>,</b> <i>"pso"</i><b>,</b> <i>"integrated"</i><b>]
-]</b>
-</pre>
+<pre class="hl sqf output">[
+    ["ICP_valpso", "ICP_valmag", "pso", "integrated"],
+    ["ICP_vss",    "ICP_vssmag", "pso", "integrated"]
+]</pre>
 <p>Кстати, имейте ввиду, что возвращаемые ряды — это не копии рядов таблицы, а ссылки на них.
 Если вы измените значения в них, то изменится и сама таблица.</p>
 
@@ -380,7 +376,7 @@ _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 
 <p>Вы все еще используете жуткие наборы из нескольких десятков</p>
 
-<pre class="hl output"><b>?</b> _ствол <b>==</b> <i>"стволнэйм"</i> : _оптика <b>=</b> <em>true</em>; <b>exit</b></pre>
+<pre class="hl sqf output">? _ствол == "стволнэйм" : _оптика = <em>true</em>; exit</pre>
 или что-то в этом духе? Тогда мы идем к Вам!
 
 
@@ -427,7 +423,7 @@ _car addWeaponCargo ["SuperPuperMegaGun",1]</pre>
 игрока и имеет соответствуещее название — TracePlayer — тогда все
 глобальные переменные используемые этим модулем будут иметь подобные имена:</p>
 
-<pre class="hl">MSPMOD_TracePlayer_currentVehicle
+<pre class="hl sqf">MSPMOD_TracePlayer_currentVehicle
 MSPMOD_TracePlayer_usedVehicle
 MSPMOD_TracePlayer_usedWeapons
 MSPMOD_TracePlayer_killedEnemy</pre>
@@ -440,7 +436,7 @@ MSPMOD_TracePlayer_killedEnemy</pre>
 Однако если существует возможность стартовать наши скрипты из некоторого общего места —
 другого «родительского» скрипта, то вполне можно обойтись локальными переменными.</p>
 
-<pre class="hl">// массив с именами скриптов
+<pre class="hl sqf">// массив с именами скриптов
 _processes = [];
 
 // массив с любыми данными
@@ -457,94 +453,94 @@ _sharedData = [];
 чтобы не таскать их по десять раз из файла preprocessFile'ом. Можно давать им префикс в духе «globFunc»
 или просто «func», в таком случае удобно расположить все функции в одном файле:</p>
 
-<pre class="hl">#define arg(x) = (_this select x)
+<pre class="hl sqf">#define arg(x) = (_this select x)
 
 // [getpos unit, circlePosition, circleRadius] call funcInCircle
 
 funcInCircle = {
     #define mDeltaX ((_ppos select 0) - (_cpos select 0))
-    #define mDeltaY ((_ppos select 1) - (_cpos select 1))
-    #define mRadius (arg(2))
-    private ["_ppos","_cpos"];
-    _ppos = arg(0);
-    _cpos = arg(1);
-    mRadius ^ 2 &gt; mDeltaX ^ 2 + mDeltaY ^ 2
+    #define mDeltaY ((_ppos select 1) - (_cpos select 1))
+    #define mRadius (arg(2))
+    private ["_ppos","_cpos"];
+    _ppos = arg(0);
+    _cpos = arg(1);
+    mRadius ^ 2 &gt; mDeltaX ^ 2 + mDeltaY ^ 2
 };
 
 // [getpos unit1, getpos unit2] call funcGetDirToPos
 
 funcGetDirToPos = {
-    private["_p1","_p2","_dx","_dy"];
-    _p1 = arg(0);
-    _p2 = arg(1);
-    _dx = (_p1 select 0) - (_p2 select 0);
-    _dy = (_p1 select 1) - (_p2 select 1);
-    if ( _dx == 0 &amp;&amp; _dy == 0 ) then {
-        -360 // for calling side: error if negative
-    } else {
-        ( 180 + (_dx atan2 _dy) ) % 360
-    }
+    private["_p1","_p2","_dx","_dy"];
+    _p1 = arg(0);
+    _p2 = arg(1);
+    _dx = (_p1 select 0) - (_p2 select 0);
+    _dy = (_p1 select 1) - (_p2 select 1);
+    if ( _dx == 0 &amp;&amp; _dy == 0 ) then {
+        -360 // for calling side: error if negative
+    } else {
+        ( 180 + (_dx atan2 _dy) ) % 360
+    }
 };
 
-// и так далее... </pre>
+// и так далее...</pre>
 <p>Но раз уж мы взялись бороться с глобальными именами, то решим,
 что не все функции бывают нужны часто,
 и иногда проще загрузить один такой набор функций:</p>
 
-<pre class="hl">// файл library.libname.sqf
+<pre class="hl sqf">// файл library.libname.sqf
 _library_libname =
 {
-    _funcInCircle = {
-        ...
-    };
+    _funcInCircle = {
+        ...
+    };
 
-    _funcGetDirToPos = {
-        ...
-    };
+    _funcGetDirToPos = {
+        ...
+    };
 
-    _funcNearestFromList = {
-        ...
-    };
+    _funcNearestFromList = {
+        ...
+    };
 };
 
 ["_funcInCircle", "_funcGetDirToPos", "_funcNearestFromList"]</pre>
 <p>При таком подходе переменные вида _library_libname всегда соответствуют названию файла библиотки "library.libname.sqf",
 и подключение библиотечных функций выглядит так:</p>
 
-<pre class="hl">private "_library_libname";
+<pre class="hl sqf">private "_library_libname";
 private call preprocessFile "library.libname.sqf";
 call _library_libname;</pre>
 <p>Но в действительности, это удобней только тогда, когда мы не хотим использовать глобальные функции.
 Можно значительно повысить удобство используя компромиссный вариант:</p>
 
-<pre class="hl">MSPMOD_LIBRARY_LIBNAME_EXPORT =
+<pre class="hl sqf">MSPMOD_LIBRARY_LIBNAME_EXPORT =
 [
-    "_mspmod_library_libname",
-    "_funcInCircle",
-    "_funcGetDirToPos",
-    "_funcNearestFromList"
+    "_mspmod_library_libname",
+    "_funcInCircle",
+    "_funcGetDirToPos",
+    "_funcNearestFromList"
 ];
 
 MSPMOD_LIBRARY_LIBNAME =
 {
-    _funcInCircle = {
-        ...
-    };
+    _funcInCircle = {
+        ...
+    };
 
-    _funcGetDirToPos = {
-        ...
-    };
+    _funcGetDirToPos = {
+        ...
+    };
 
-    _funcNearestFromList = {
-        ...
-    };
+    _funcNearestFromList = {
+        ...
+    };
 };</pre>
 <p>Мы лишь однажды вызываем инициализацию такой библиотеки, непосредственно при старте проекта:</p>
 
-<pre class="hl">call preprocessFile "my.lib.sqf"</pre>
+<pre class="hl sqf">call preprocessFile "my.lib.sqf"</pre>
 <p>И всегда можем получить в текущий контекст определенные в ней функции в два движения:</p>
 
-<pre class="hl">private MSPMOD_LIBRARY_LIBNAME_EXPORT;
+<pre class="hl sqf">private MSPMOD_LIBRARY_LIBNAME_EXPORT;
 call MSPMOD_LIBRARY_LIBNAME;</pre>
 <p>В таком случае мы сокращаем количество глобальных имен до двух на каждую библиотеку,
 и вовсе ничего не таскаем раз за разом из файла — это делается только однажды.
@@ -552,7 +548,7 @@ call MSPMOD_LIBRARY_LIBNAME;</pre>
 представление, то такой способ был бы практически столь же быстрым как и вариант с глобальными функциями.
 Можно «экспортировать» и только нужные функции:</p>
 
-<pre class="hl">private ["_funcInCircle", "_funcNearestFromList"];
+<pre class="hl sqf">private ["_funcInCircle", "_funcNearestFromList"];
 call MSPMOD_LIBRARY_LIBNAME;</pre>
 <p>Нужно только помнить, что если в текущем контексте уже есть имена совпадающие с именами
 определёнными в библиотеке, они будут перезаписаны вызовом MSPMOD_LIBRARY_LIBNAME.</p>
@@ -573,7 +569,7 @@ call MSPMOD_LIBRARY_LIBNAME;</pre>
 на постоянный парсинг. Причем зачастую повторый парсинг одного и того же кода.
 Как-то я пытался соптимизировать проверку дистанции между двумя точками на плоскости:</p>
 
-<pre class="hl">00 funcNearestFromList = {
+<pre class="hl sqf">00 funcNearestFromList = {
 01     private ["_nearest", "_mindistq", "_distq", "_pos", "_px", "_py"];
 02     // Квадрат минимальной найденной дистанции
 03     _mindistq = if (count _this &gt; 2) then {(arg(2)) ^ 2} else {1e+10};
@@ -621,9 +617,9 @@ call MSPMOD_LIBRARY_LIBNAME;</pre>
 
 <p>Поскольку это не самый известный алгоритм, я привожу его здесь:</p>
 
-<pre class="hl">/*
-    Сортировка на пирамиде, O(n log n)
-    модифицирует переданный массив
+<pre class="hl sqf">/*
+    Сортировка на пирамиде, O(n log n)
+    модифицирует переданный массив
 */
 
 private ["_sift", "_arr", "_max", "_i", "_l", "_u", "_c", "_tmp"];
@@ -632,24 +628,24 @@ private ["_sift", "_arr", "_max", "_i", "_l", "_u", "_c", "_tmp"];
 #define sift(a,b)  _l=(a); _u=(b); call _sift
 
 _sift = {
-    _tmp = _arr select _l;
-    while {
-        _c = _l+_l+1;
-        if (_c &lt;= _u) then {
-            if (_c &lt; _u) then {
-                if ( _arr select _c+1 &gt; _arr select _c ) then {
-                    _c = _c + 1;
-                };
-            };
-            if (_tmp &lt; _arr select _c) then {
-                _arr set [_l, _arr select _c];
-                _l = _c;
-                incSwapCounter;
-                <em>true</em>
-            }
-        }
-    } do {};
-    _arr set [_l, _tmp];
+    _tmp = _arr select _l;
+    while {
+        _c = _l+_l+1;
+        if (_c &lt;= _u) then {
+            if (_c &lt; _u) then {
+                if ( _arr select _c+1 &gt; _arr select _c ) then {
+                    _c = _c + 1;
+                };
+            };
+            if (_tmp &lt; _arr select _c) then {
+                _arr set [_l, _arr select _c];
+                _l = _c;
+                incSwapCounter;
+                <em>true</em>
+            }
+        }
+    } do {};
+    _arr set [_l, _tmp];
 };
 
 _arr = _this;
@@ -663,12 +659,12 @@ _i = _max;
 
 while { _i &gt; 0 } do {
 
-    _tmp = _arr select 0;
-    _arr set [0, _arr select _i];
-    _arr set [_i, _tmp];
-    incSwapCounter;
+    _tmp = _arr select 0;
+    _arr set [0, _arr select _i];
+    _arr set [_i, _tmp];
+    incSwapCounter;
 
-    sift(0,_i-1); _i = _i-1
+    sift(0,_i-1); _i = _i-1
 };
 
 _arr</pre>
