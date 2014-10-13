@@ -9,7 +9,7 @@ body {
   text-align: left;
   width: 47em;
   background: #f8f8f8;
-  text-shadow: 0 0 0 #888;
+  text-shadow: 0 0 0 #bbb;
 }
 
 p {
@@ -19,7 +19,7 @@ p {
 }
 
 tt, pre {
-  font: normal normal 100%/140% "PragmataPro", "Consolas", monospace;
+  font: normal 400 1em/140% "PragmataPro", "Consolas", monospace;
 }
 
 tt {
@@ -177,12 +177,6 @@ pre.output {
   margin: 0 !important;
   background: transparent;
 }
-
-/*pre {
-  text-decoration: none;
-  font-weight: normal;
-  font-style: normal;
-}*/
 
 ul {
   padding: 0;

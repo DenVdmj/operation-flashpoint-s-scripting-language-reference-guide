@@ -190,12 +190,12 @@ if ( format ["%1", GlobalVar + GlobalVar] == "scalar" ) then {
 
 <p>Ну и наконец можно вовсе обойтись без некрасивой format:</p>
 <pre class="hl sqf">// Для массивов:
-if ( 0 == { _x &gt;= 0 }count[count GlobalArray] ) then {
+if ( 0 == { _x &gt;= 0 } count [count GlobalArray] ) then {
     /* инициализация */
 }
 
 // Для скалярных значений
-if ( 0 == { _x == _x }count[GlobalScalar] ) then {
+if ( 0 == { _x == _x } count [GlobalScalar] ) then {
     /* инициализация */
 }</pre>
 </i>
