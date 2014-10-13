@@ -540,7 +540,7 @@ call _subfunction</pre>
 <pre class="hl sqf">_find_assoc_data = {
 
     // обьявляем переменные приватными
-    private["_value", "_array", "_index", "_ok"];
+    private ["_value", "_array", "_index", "_ok"];
 
     // получаем аргументы и инициализируем переменные
     _value = _this select 0;
@@ -612,12 +612,11 @@ call _subfunction</pre>
 <p>Для более удобной работы с аргументами, часто имеет смысл записать их в переменные:</p>
 <pre class="hl sqf">_my_sqf_function = {
 
-    private["_arg0", "_arg1", "_arg2"];
+    private ["_arg0", "_arg1", "_arg2"];
 
     _arg0 = _this select 0;
     _arg1 = _this select 1;
     _arg2 = _this select 2;
-
 }</pre>
 
 <p>Здесь все аналогично случаю с sqs, за одним небольшим отличием — поскольку в одном файле может быть описано несколько функций,
@@ -766,13 +765,13 @@ hint "подсказка" // перед комментарием может ра
 #define mGetRank(s)           ((s) select 6)
 
 // макро модификации
-#define mSetVehicleType(s,v)    ((s) set[0,v])
-#define mSetPosition(s,v)       ((s) set[1,v])
-#define mSetIdentityHandle(s,v) ((s) set[2,v])
-#define mSetStatusHandle(s,v)   ((s) set[3,v])
-#define mSetAzimut(s,v)         ((s) set[4,v])
-#define mSetSkill(s,v)          ((s) set[5,v])
-#define mSetRank(s,v)           ((s) set[6,v])</pre>
+#define mSetVehicleType(s,v)    ((s) set [0,v])
+#define mSetPosition(s,v)       ((s) set [1,v])
+#define mSetIdentityHandle(s,v) ((s) set [2,v])
+#define mSetStatusHandle(s,v)   ((s) set [3,v])
+#define mSetAzimut(s,v)         ((s) set [4,v])
+#define mSetSkill(s,v)          ((s) set [5,v])
+#define mSetRank(s,v)           ((s) set [6,v])</pre>
 
 <p>Областью действия макро является текст sqf скрипта, от точки определения макро, до конца файла.</p>
 
@@ -806,8 +805,8 @@ hint "подсказка" // перед комментарием может ра
 <table class="list">
 <tbody>
 <tr><th>«condition»</th><th>—</th><td>условие</td></tr>
-<tr><th>«then_expression»</th><th>—</th><td>код который будет выполнен, если «condition» истинно</td></tr>
-<tr><th>«else_expression»</th><th>—</th><td>код который будет выполнен, если «condition» ложно</td></tr>
+<tr><th>«then_expression»</th><th>—</th><td>код который будет выполнен если «condition» истинно</td></tr>
+<tr><th>«else_expression»</th><th>—</th><td>код который будет выполнен если «condition» ложно</td></tr>
 </tbody>
 </table>
 
@@ -821,18 +820,18 @@ hint "подсказка" // перед комментарием может ра
 <p>О булевом типе можно более подробно прочитать <a href="ofp-scripting.variable.html#toc05">
 в главе о переменных</a>, а пока отметим
 лишь, что значения с таким типом возвращают некоторые команды, например
-<span tooltip="Вернёт true если объект передаваемый правым операндом жив;
+<span tooltip="Вернёт true, если объект передаваемый правым операндом жив;
 на предмет других команд возвращающих boolean смотрим комреф">alive</span>,
-<span tooltip="Вернёт true если объект может стрелять;
+<span tooltip="Вернёт true, если объект может стрелять;
 на предмет других команд возвращающих boolean смотрим комреф">canFire</span>,
-<span tooltip="Вернёт true если объект может передвигаться;
+<span tooltip="Вернёт true, если объект может передвигаться;
 на предмет других команд возвращающих boolean смотрим комреф">canMove</span>,
-<span tooltip="Вернёт true если солдат сбегает с поля боя;
+<span tooltip="Вернёт true, если солдат сбегает с поля боя;
 на предмет других команд возвращающих boolean смотрим комреф">fleeing</span>,
-<span tooltip="Вернёт true если солдат пленен;
+<span tooltip="Вернёт true, если солдат пленен;
 на предмет других команд возвращающих boolean смотрим комреф">captive</span>, оператор
-<span tooltip="Вернёт true если в массиве указанном правым операндом есть элемент равный левому операнду;
-и все равно смотрите комреф, нефига фсе в подсказки смотреть )) ">in</span>
+<span tooltip="Вернёт true, если в массиве указанном правым операндом есть элемент равный левому операнду;
+и все равно смотрите комреф, нефига всё в подсказки смотреть )) ">in</span>
 и <i>операторы отношения</i>:</p>
 
 <table class="list">
@@ -894,7 +893,7 @@ hint ( if ( _n ) then { "1" } else { "2" } )</pre>
 а then, в зависимости от состояния своего левого операнда (он имеет специальный тип "IF") выполняет или нулевой,
 или первый элемент этого массива. Это легко проверяется такими примерами:</p>
 <pre class="hl sqf">_n = <em>true</em>;
-if ( _n )then[{ hint "1" }, { hint "2" }]</pre>
+if ( _n ) then [{ hint "1" }, { hint "2" }]</pre>
 <pre class="hl sqf">hint ( {"Alpha"} else {"Beta"} select 0 )</pre>
 <pre class="hl sqf">hint ( {"Alpha"} else {"Beta"} select 1 )</pre>
 
@@ -987,13 +986,13 @@ while { _condition } do {
 while { _real_condition_ &amp;&amp; !break } do {
 
     // если необходимо прервать цикл
-    if ( условие ){
+    if ( условие ) then {
         break = <em>true</em>
     } else {
         // продолжение цикла
 
         // если необходимо перейти в начало цикла
-        if ( ! условие ){
+        if ( ! условие ) then {
             // продолжение цикла
         }
     }
@@ -1118,7 +1117,7 @@ call (call _key_name);</pre>
 
 <p>Последний, самый сложный вариант — выбор по ключу являющимся свободной строкой.
 В этом случае никакие особенности языка нам не помощники, и придется реализовывать поиск в массиве пар.</p>
-<pre class="hl sqf">private["_pairs", "_findValueInPairs"];
+<pre class="hl sqf">private ["_pairs", "_findValueInPairs"];
 
 // массив пар: ключ/функция
 _pairs = [
@@ -1130,7 +1129,7 @@ _pairs = [
 // ищет прямым перебором ключ и возвращает сопоставленное ему значение
 _findValueInPairs = {
 
-    private["_a", "_k", "_i"];
+    private ["_a", "_k", "_i"];
 
     _a = _this select 0; // массив пар
     _k = _this select 1; // искомый ключ
@@ -1154,7 +1153,7 @@ _findValueInPairs = {
         иначе
             вернуть анонимную функцию выводящую сообщение о неудаче
     */
-    if ( _i &lt; count _a )then[{_a select (_i + 1)}, {{hint "not found"}}]
+    if (_i &lt; count _a) then [{_a select (_i + 1)}, {{hint "not found"}}]
 
 };
 
