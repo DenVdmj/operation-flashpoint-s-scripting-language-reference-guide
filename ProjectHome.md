@@ -1,0 +1,1 @@
+[Operation Flashpoint Scripting Language. Reference Guide](https://operation-flashpoint-s-scripting-language-reference-guide.googlecode.com/hg/ofp-scripting.content.html)
